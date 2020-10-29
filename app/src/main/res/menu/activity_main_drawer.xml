@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_places"
+            android:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:title="@string/menu_places" />
+        <item
+            android:id="@+id/nav_food"
+            android:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:title="@string/menu_catering" />
+        <item
+            android:id="@+id/nav_hotels"
+            android:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:title="@string/menu_hotels" />
+        <item
+            android:id="@+id/nav_swimming"
+            android:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:title="@string/menu_swimming" />
+        <item
+            android:id="@+id/nav_rus_island"
+            android:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:title="@string/menu_rus_island" />
+
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:title="@string/menu_about" />
+
+    </group>
+</menu>

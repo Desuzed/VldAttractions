@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="array_places">
+        <item>Вантовые мосты</item>
+        <item>Спортивная набережная</item>
+        <item>Набережная цесаревича</item>
+        <item>Фуникулёр</item>
+        <item>Бухта Золотой Рог</item>
+        <item>Сопка "Орлиное гнездо"</item>
+        <item>Фрегаты "Надежда" и "Паллада"</item>
+        <item>Корабль-памятник "Красный Вымпел"</item>
+        <item>Лютеранская церковь Святого Павла</item>
+        <item>Николаевский Триумфальные Ворота</item>
+        <item>Токаревский маяк</item>
+    </string-array>
+
+    <string-array name="array_food">
+        <item>Zuma</item>
+        <item>Supra</item>
+        <item>Пхали-хинкали</item>
+        <item>Oh, my crab</item>
+        <item>Панорамный ресторан "Высота"</item>
+        <item>Pho-viet</item>
+        <item>Чи-Фань</item>
+        <item>Brugge Pub</item>
+        <item>Alaska</item>
+        <item>HolyHop</item>
+    </string-array>
+
+    <string-array name="array_hotels">
+        <item>Marine Wave</item>
+        <item>Azimut</item>
+        <item>Lido Central hotel</item>
+        <item>Holiday hotel</item>
+        <item>Жемчужина Отель</item>
+        <item>Hotel KamInn</item>
+        <item>АпартОтель Арбат Владивосток</item>
+        <item>Karmen</item>
+        <item>Capsule Hotel Zodiac</item>
+        <item>Отель Teplo</item>
+    </string-array>
+
+    <string-array name="array_swimming">
+        <item>Бухта Лазурная (Шамора)</item>
+        <item>Бухта Стеклянная</item>
+        <item>Пляж на Токаревском маяке</item>
+        <item>Юбилейный</item>
+        <item>На мысе Кунгасный</item>
+        <item>Пляж в бухте "Спокойная"</item>
+        <item>Набережная кампуса ДВФУ</item>
+    </string-array>
+
+    <string-array name="array_rus_island">
+        <item>Мыс Тобизина</item>
+        <item>Мыс Вятлина</item>
+        <item>Бухта Аякс</item>
+        <item>ДВФУ</item>
+        <item>Кладбище кораблей</item>
+        <item>Новосильцевская батарея</item>
+        <item>Океанариум острова Русский</item>
+        <item>Остров Шкота</item>
+
+    </string-array>
+
+
+</resources>

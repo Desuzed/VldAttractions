@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Vladivostok Attractions</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Достопримечательности Владивостока</string>
+    <string name="nav_header_subtitle">Найди место себе по душе</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_places">Что посмотреть</string>
+    <string name="menu_museums">Музеи</string>
+    <string name="menu_catering">Места общепита</string>
+    <string name="menu_hotels">Отели</string>
+    <string name="menu_swimming">Где искупаться</string>
+    <string name="menu_rus_island">Русский остров</string>
+    <string name="menu_entertainment">Развлечения</string>
+    <string name="menu_advices">Советы</string>
+    <string name="menu_hills">Смотровые площадки и сопки</string>
+    <string name="menu_shopping">Торговые центры</string>
+    <string name="menu_about">О приложении</string>
+</resources>
