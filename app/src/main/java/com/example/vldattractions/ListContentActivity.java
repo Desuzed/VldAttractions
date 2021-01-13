@@ -1,6 +1,7 @@
 package com.example.vldattractions;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ListContentActivity extends AppCompatActivity {
     private TextView textView;
     private ImageView imageView;
+    private Typeface typeface;
     private int category = 0;
     private int position = 0;
     //Массивы с текстовыми ресурсами
@@ -30,8 +32,7 @@ public class ListContentActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_content);
-        textView = findViewById(R.id.textContentView);
-        imageView = findViewById(R.id.imageContent);
+        init();
         recieveIntent();
     }
 
@@ -59,5 +60,12 @@ public class ListContentActivity extends AppCompatActivity {
                 textView.setText(rusIslandStr[position]);
                 break;
         }
+    }
+    private void init(){
+        textView = findViewById(R.id.textContentView);
+        imageView = findViewById(R.id.imageContent);
+        //Добавили шрифт, скачанный из Google fonts
+        typeface = Typeface.createFromAsset(this.getAssets(), "fonts/PTMono-Regular.ttf");
+        textView.setTypeface(typeface);
     }
 }

@@ -2,6 +2,9 @@ package com.example.vldattractions;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.SyncStateContract;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
@@ -31,9 +34,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private  int categoryIndex = 0;
     private ListView listView;
     private Toolbar toolbar;
+    private static final String TAG = "MainActivity";
+
+//    public static final String APP_PREFS_NAME = SyncStateContract.Constants.class.getPackage().getName();
+//    public static final String APP_CACHE_PATH =
+//            Environment.getExternalStorageDirectory().getAbsolutePath() +
+//                    "/Android/data/" + APP_PREFS_NAME + "/cache/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+     //   Log.i(TAG, "onCreate: APP_PREFS_NAME = " + APP_PREFS_NAME + " APP_CACHE_PATH = " + APP_CACHE_PATH);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Что посмотреть");
@@ -75,52 +85,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         if (id == R.id.nav_places) {
             Toast.makeText(this, "Places", Toast.LENGTH_SHORT).show();
-            categoryIndex = 0;
-            strArray = getResources().getStringArray(R.array.array_places);
-            adapter.clear();
-            adapter.addAll(strArray);
-            toolbar.setTitle("Что посмотреть");
-            adapter.notifyDataSetChanged();
+            fillArray(R.string.menu_places, R.array.array_places, 0 );
         }else if (id == R.id.nav_food){
             Toast.makeText(this, "Food", Toast.LENGTH_SHORT).show();
-            categoryIndex = 1;
-            strArray = getResources().getStringArray(R.array.array_food);
-            adapter.clear();
-            adapter.addAll(strArray);
-            toolbar.setTitle("Места общепита");
-            adapter.notifyDataSetChanged();
+            fillArray(R.string.menu_catering, R.array.array_food, 1 );
         }else if (id == R.id.nav_hotels){
             Toast.makeText(this, "Hotels", Toast.LENGTH_SHORT).show();
-            categoryIndex = 2;
-            strArray = getResources().getStringArray(R.array.array_hotels);
-            adapter.clear();
-            adapter.addAll(strArray);
-            toolbar.setTitle("Отели");
-            adapter.notifyDataSetChanged();
+            fillArray(R.string.menu_hotels, R.array.array_hotels, 2);
         }else if (id == R.id.nav_swimming){
             Toast.makeText(this, "Swimming", Toast.LENGTH_SHORT).show();
-            categoryIndex = 3;
-            strArray = getResources().getStringArray(R.array.array_swimming);
-            adapter.clear();
-            adapter.addAll(strArray);
-            toolbar.setTitle("Где искупаться");
-            adapter.notifyDataSetChanged();
+            fillArray(R.string.menu_swimming, R.array.array_swimming, 3 );
         }else if (id == R.id.nav_rus_island){
             Toast.makeText(this, "Russky Island", Toast.LENGTH_SHORT).show();
-            categoryIndex = 4;
-            strArray = getResources().getStringArray(R.array.array_rus_island);
-            adapter.clear();
-            adapter.addAll(strArray);
-            toolbar.setTitle("Русский остров");
-            adapter.notifyDataSetChanged();
+            fillArray(R.string.menu_rus_island, R.array.array_rus_island, 4);
         }else if (id == R.id.nav_about){
             Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
             categoryIndex = 5;
-
         }
-
-
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void fillArray (int title, int arrayList, int index){
+        categoryIndex = index;
+        strArray = getResources().getStringArray(arrayList);
+        adapter.clear();
+        adapter.addAll(strArray);
+        toolbar.setTitle(title);
+        adapter.notifyDataSetChanged();
     }
 }
