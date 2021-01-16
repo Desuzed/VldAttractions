@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="places_pics_url">
+        <item>https://seanews.ru/wp-content/uploads/2020/05/russkij-most-vo-vladivostoke.jpg</item>
+        <item>https://primamedia.gcdn.co/f/main/1770/1769019.jpg?28ee85f935254f6d31fade3bebcce1b1</item>
+        <item>https://vladivostok-city.com/uploads/i/bg/54918ad3b96b57.26761311.1164.jpg</item>
+        <item>https://vladivostok-city.com/uploads/i/bg/50091ddd185753.00482852.880.jpg</item>
+        <item>https://cs5.pikabu.ru/post_img/big/2015/12/10/4/1449721541199155438.jpg</item>
+        <item>https://cs8.pikabu.ru/post_img/big/2017/12/23/1/1513981724190039608.jpg</item>
+        <item>https://top10.travel/wp-content/uploads/2017/09/pallada-nadezhda.jpg</item>
+        <item>https://rulandinfo.ru/upload/iblock/738/%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%BE%D1%80%D0%B0%D0%B1%D0%BB%D1%8C%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%BC%D0%BF%D0%B5%D0%BB.jpg</item>
+        <item>https://static.vl.ru/catalog/1461708375485_big_vlru.jpg</item>
+        <item>https://www.vladseatour.ru/img/26971.png?1441170081</item>
+        <item>https://gor-travel.ru/wp-content/uploads/2020/05/mayak-egersheld-3.jpg</item>
+    </string-array>
+
+    <string-array name="food_pics_url">
+        <item>https://lh3.googleusercontent.com/proxy/wGd3gnDXDGwRVkE9_2H1XvPrsM-_q7FRO2jkjFleuRPhoxNss2xG0Qo9dlC5_bmhKIt7wb0GG8ZoDzzbPk1rdotzJNVBF-z3ByrB3yCYfg</item>
+        <item>https://static.vl.ru/catalog/1539248967885_big_vlru.jpg</item>
+        <item>https://phali-hinkali.ru/vld/pimages/Restorans13/4c2595ae77-1_1920x.jpg</item>
+        <item>https://static.vl.ru/catalog/1538369620423_big_vlru.jpg</item>
+        <item>https://primamedia.ru/f/big/977/976333.jpg?5ddfd8b7352d32a2140a188f7725b205</item>
+        <item>https://avatars.mds.yandex.net/get-altay/1880524/2a0000016f91c08d07a8be88394ad0ec9d2b/XXL</item>
+        <item>https://10619-2.s.cdn12.com/rests/original/109_507800671.jpg</item>
+        <item>https://media-cdn.tripadvisor.com/media/photo-s/12/e1/b4/cb/caption.jpg</item>
+        <item>https://cdn.the-village.ru/the-village.ru/post_image-image/TsFGDsmTPbjV84s_70VQ7Q.jpg</item>
+        <item>https://static-cdn1.vigbo.tech/u4010/2654/blog/562959/1183853/16242335/1000-vladivostok_wedding_gudenko_reactive-45cab6486618acafdcc13fa2ba004582.jpg</item>
+    </string-array>
+<!---->
+    <string-array name="hotels_pics_url">
+        <item>https://cf.bstatic.com/images/hotel/max1024x768/261/261973686.jpg</item>
+        <item>https://media-cdn.tripadvisor.com/media/photo-s/08/44/fc/2d/azimut-hotel-vladivostok.jpg</item>
+        <item>https://cf.bstatic.com/images/hotel/max1024x768/216/216641491.jpg</item>
+        <item>https://cf.bstatic.com/images/hotel/max1024x768/263/263396308.jpg</item>
+        <item>https://cf.bstatic.com/images/hotel/max1024x768/192/192147191.jpg</item>
+        <item>https://cf.bstatic.com/images/hotel/max1024x768/157/157867471.jpg</item>
+        <item>https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_650,q_auto,w_1000/itemimages/25/54/2554062_v3.jpeg</item>
+        <item>https://media-cdn.tripadvisor.com/media/photo-s/12/2a/53/1d/caption.jpg</item>
+        <item>https://cf.bstatic.com/images/hotel/max1024x768/104/104572441.jpg</item>
+        <item>https://static.readytotrip.com/upload/information_system_24/5/8/6/item_586211/photo_16924532.jpg</item>
+    </string-array>
+
+    <string-array name="swimming_pics_url">
+        <item>https://static.vl.ru/catalog/1511752414507_big_vlru.jpg</item>
+        <item>https://vestiprim.ru/uploads/posts/2018-07/thumbs/1532259631_buhta-steklyannaya.jpg</item>
+        <item>https://lh3.googleusercontent.com/proxy/-DTvAXkc9kFfQM4ROQWjWuN4p78-u8gy-yMHcpLy0iq8o3exUoHc9R2lIvBQ47FNdCHyrckrqtgJatBWF4JISoUyDHBmkooMnDhrg7J5kUhsRZEFgQ8eqRjanbM6kg</item>
+        <item>https://aif-s3.aif.ru/images/014/268/59bf797900d98bcc1d07a26fd5707fb6.jpg</item>
+        <item>https://img.tourister.ru/files/2/6/7/0/1/9/1/7/original.jpg</item>
+        <item>https://lh3.googleusercontent.com/proxy/JJc63655tsaFYOXRakkY5S4CM0Z6nx1P1h3ej-QAOyW0AkOz09k6Gw_5psNNHkqEv4HZljHFYLr_MrWzpNBdPWJ-l2efM4I1l276oFZf6SWc-IemdrNCoaZUe-O0aiHlDlzOkwWMdrl-CeOnHEmE6uUy</item>
+        <item>https://img06.rl0.ru/afisha/-x-i/daily.afisha.ru/uploads/images/9/87/9875976b2b0b44a08d765672e56bb7d6.png</item>
+    </string-array>
+
+    <string-array name="rus_island_pics_url">
+        <item>https://static.vl.ru/news/1539778808330_default</item>
+        <item>https://tourdv.ru/wp-content/uploads/2019/08/Mys-Vyatlina-1.jpg</item>
+        <item>https://lh3.googleusercontent.com/proxy/XvU0CjFXkQQiZAt2e5sZjjvpUaeFq9y3v5m1GovaSTFpT4Exs5j1fzNQMls62AvzMCa5PNBIKt1aCGlkTEVDJzAeIhLtHEm1pZDzJIdRXgah3pmNgvFgDNUq</item>
+        <item>https://www.primorsky.ru/upload/resize_cache/iblock/106/750_491_2/10631ce3ef0d1a1ac323d31c4867330b.jpg</item>
+        <item>https://a.d-cd.net/fMAAAgDLP2A-960.jpg</item>
+        <item>https://img-fotki.yandex.ru/get/6622/172291140.4/0_aa447_f3e22948_XL.jpg</item>
+        <item>https://sdelanounas.ru/i/c/3/r/f_c3RvcmFnZTEuc3RhdGljLml0bWFnZXMuY29tL2kvMTYvMDkwMy9oXzE0NzI5MzA1MDlfMzU5NTg3Ml9hNTVkZGM5NmY2LmpwZw==.jpeg</item>
+        <item>https://vladnews.ru/uploads/news/2018/08/15/thumb_286617_news_xxxl.jpeg</item>
+    </string-array>
+
+
+
+</resources>

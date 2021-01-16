@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_color">#006E62</color>
     <color name="button_logo">#35A0F5</color>
+    <color name="bg">#5798FFAA</color>
+    <color name="tvBackgroundDark">#9E838181</color>
+
 </resources>
