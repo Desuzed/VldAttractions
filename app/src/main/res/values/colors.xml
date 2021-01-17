@@ -7,9 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="main_color">#006E62</color>
     <color name="button_logo">#35A0F5</color>
-    <color name="bg">#5798FFAA</color>
-    <color name="tvBackgroundDark">#9E838181</color>
+    <color name="bgRecView">#2FFFFFFF</color>
+    <color name="tvBackgroundDark">#A9838181</color>
+
+    <color name="main_color">#006E62</color>
+
+    <color name="firstColor">#607D8B</color>
+    <color name="second_color">#004C44</color>
+    <color name="accent">#FDD835</color>
 
 </resources>
