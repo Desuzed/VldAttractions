@@ -1,5 +1,6 @@
 package com.example.vldattractions;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.SyncStateContract;
@@ -21,47 +22,24 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    //private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
     private String[] captionsArray;
-    private String [] picsArray;
- //   private ArrayAdapter<String> adapter;
+    private String[] picsArray;
     public static int categoryIndex = 0;
- //   private ListView listView;
     private Toolbar toolbar;
     private static final String TAG = "MainActivity";
-
     private RecyclerView recyclerView;
     private RecViewAdapter recViewAdapter;
-  //  private ImageView imItemRV;
 
-        public static final String APP_PREFS_NAME = SyncStateContract.Constants.class.getPackage().getName();
-    public static final String APP_CACHE_PATH =
-            Environment.getExternalStorageDirectory().getAbsolutePath() +
-                    "/Android/data/" + APP_PREFS_NAME + "/cache/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(TAG, "onCreate: APP_PREFS_NAME = " + APP_PREFS_NAME + " APP_CACHE_PATH = " + APP_CACHE_PATH);
-        Log.i(TAG, "onCreate: " + Environment.getDataDirectory().getAbsolutePath());
         init();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(MainActivity.this, ListContentActivity.class);
-//                intent.putExtra("categoryIndex", categoryIndex);
-//                intent.putExtra("position", i);
-//                startActivity(intent);
-//            }
-//        });
     }
 
 
@@ -100,17 +78,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void fillArray(int title, int captionArray, int picturesArray, int index) {
         categoryIndex = index;
-
         captionsArray = getResources().getStringArray(captionArray);
         picsArray = getResources().getStringArray(picturesArray);
-
         recViewAdapter.clearItems();
         recViewAdapter.setItems(captionsArray, picsArray);
         recViewAdapter.notifyDataSetChanged();
         toolbar.setTitle(title);
-//       adapter.clear();
-//        adapter.addAll(strArray);
-        // adapter.notifyDataSetChanged();
     }
 
     private void init() {
@@ -128,17 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle("Что посмотреть");
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
-        //  imItemRV = findViewById(R.id.imgItemRV);
 
-        //  listView =findViewById(R.id.listView);
-        //   adapter =new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(Arrays.asList(strArray)));
-        //  listView.setAdapter(adapter);
     }
 }
 
-//        ArrayList <ItemRecView> list = new ArrayList<>();
-//        for (int i = 0; i < 20; i++) {
-//            ItemRecView item = new ItemRecView();
-//            item.setName("Корабль памятник красный вымпел" + String.valueOf(i));
-//            list.add(item);
-//        }

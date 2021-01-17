@@ -2,6 +2,7 @@ package com.example.vldattractions.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,14 +26,14 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     private List<String> captArray = new ArrayList<>();
     private static final String TAG = "RecViewAdapter";
     private Context contextMainActivity;
-    private String [] picsArray;
- //   public static int categoryIndex;
+    private String[] picsArray;
+    private Typeface typeface;
 
     public RecViewAdapter(Context contextMainActivity) {
         this.contextMainActivity = contextMainActivity;
     }
 
-    public void setItems(String[] captionsArray, String [] picsArray) {
+    public void setItems(String[] captionsArray, String[] picsArray) {
         captArray = new ArrayList<>(Arrays.asList(captionsArray));
         this.picsArray = picsArray;
         notifyDataSetChanged();
@@ -76,14 +77,13 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvItemRV;
         private ImageView imgItemRV;
-        
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgItemRV = itemView.findViewById(R.id.imgItemRV);
             tvItemRV = itemView.findViewById(R.id.tvItemRV);
-            
-//
+            typeface = Typeface.createFromAsset(contextMainActivity.getAssets(), "fonts/PTMono-Regular.ttf");
+            tvItemRV.setTypeface(typeface);
         }
 
         public void bind(String name, int position) {
@@ -93,6 +93,5 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
                     .load(picsArray[position])
                     .into(imgItemRV);
         }
-
     }
 }
