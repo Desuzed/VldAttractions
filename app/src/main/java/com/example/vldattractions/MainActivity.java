@@ -92,10 +92,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recViewAdapter = new RecViewAdapter(getApplicationContext());
         recyclerView.setAdapter(recViewAdapter);
-
         captionsArray = getResources().getStringArray(R.array.array_places);
         picsArray = getResources().getStringArray(R.array.places_pics_url);
-
         recViewAdapter.setItems(captionsArray, picsArray);
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Что посмотреть");

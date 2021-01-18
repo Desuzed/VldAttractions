@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 public class ListContentActivity extends AppCompatActivity {
     private TextView textView;
     private ImageSwitcher imageSwitcher;
+    ImageView imageContent;
     private Typeface typeface;
     private int category = 0;
     private int position = 0;
@@ -77,7 +78,7 @@ public class ListContentActivity extends AppCompatActivity {
         Glide
                 .with(this)
                 .load(picsArray[position])
-                .into(imageSwitcher);
+                .into(imageContent);
     }
 public void onBackClick(View view){
     Log.i(TAG, "onBackClick: ");
@@ -91,6 +92,7 @@ public void onFwdClick(View view){
         imageSwitcher = findViewById(R.id.imageSwitcher);
         backImgBtn = findViewById(R.id.back_btn_content);
         fwdImgBtn = findViewById(R.id.fwd_btn_content);
+        imageContent = findViewById(R.id.imageContent);
         //Добавили шрифт, скачанный из Google fonts
         typeface = Typeface.createFromAsset(this.getAssets(), "fonts/PTMono-Regular.ttf");
         textView.setTypeface(typeface);
