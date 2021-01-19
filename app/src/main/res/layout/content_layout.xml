@@ -35,10 +35,11 @@
                     android:paddingRight="8dp"
                     app:srcCompat="@drawable/button_img_left" />
 
-                <ImageView
-                    android:id="@+id/imageContent"
+                <ImageSwitcher
+                    android:id="@+id/imageSwitcher"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="4dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_vld" />
 
@@ -54,13 +55,6 @@
                     app:srcCompat="@drawable/button_img_right" />
 
             </LinearLayout>
-
-            <ImageSwitcher
-                android:id="@+id/imageSwitcher"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_vld" />
 
             <TextView
                 android:id="@+id/textContentView"

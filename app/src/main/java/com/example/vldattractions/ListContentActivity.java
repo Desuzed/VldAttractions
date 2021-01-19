@@ -7,6 +7,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
@@ -28,7 +31,6 @@ import com.example.vldattractions.utils.factory.Category;
 public class ListContentActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory {
     private TextView textView;
     private ImageSwitcher imageSwitcher;
-    private ImageView imageContent;
     private Typeface typeface;
     private Category category;
     private ArraysFactory factory = new ArraysFactory(this);
@@ -36,10 +38,9 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
     private int position = 0;
     private ImageButton backImgBtn, fwdImgBtn;
     private static final String TAG = "ListContentActivity";
-
-    private String[] imageList;
-    int length;
-    int index = 0;
+    private String[] picsArray;
+    private int length;
+    private int index = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,8 +48,6 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         setContentView(R.layout.content_layout);
         init();
         receiveIntent();
-        initResources();
-
     }
 
     private void receiveIntent() {
@@ -57,40 +56,40 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
             categoryIndex = i.getIntExtra("categoryIndex", 0);
             position = i.getIntExtra("position", 0);
         }
-        loadRes(position);
-    }
-
-    private void loadRes(int position) {
         category = factory.getCategory(categoryIndex);
-        String[] picsArray = category.getImgArray();
+        picsArray = category.getContentPics(position);
+        length = picsArray.length;
         int[] textArray = category.getTextArray();
         textView.setText(textArray[position]);
-        Glide
-                .with(this)
-                .load(picsArray[position])
-                .into(imageContent);
+        loadImgWithGlide();
+
     }
 
     private void init() {
         textView = findViewById(R.id.textContentView);
-        imageContent = findViewById(R.id.imageContent);
         imageSwitcher = findViewById(R.id.imageSwitcher);
         backImgBtn = findViewById(R.id.back_btn_content);
         fwdImgBtn = findViewById(R.id.fwd_btn_content);
         imageSwitcher.setFactory(this);
-        //Добавили шрифт, скачанный из Google fonts
         typeface = Typeface.createFromAsset(this.getAssets(), "fonts/PTMono-Regular.ttf");
         textView.setTypeface(typeface);
+        Animation inAnimation = new AlphaAnimation(0, 1);
+        inAnimation.setDuration(500);
+        Animation outAnimation = new AlphaAnimation(1, 0);
+        outAnimation.setDuration(500);
+        imageSwitcher.setInAnimation(inAnimation);
+        imageSwitcher.setOutAnimation(outAnimation);
     }
 
     private void setIndexPrev() {
-        imageSwitcher.setInAnimation(this, R.anim.from_right);
-        imageSwitcher.setOutAnimation(this, R.anim.to_left);
+//        imageSwitcher.setInAnimation(this, R.anim.from_right);
+//        imageSwitcher.setOutAnimation(this, R.anim.to_left);
         index--;
         if (index < 0) {
             index = length - 1;
         }
     }
+
     //TODO Glide не кэширует изображения и каждый раз грузит заново при нажатии на кнопки вперед и назад
     public void onBackClick(View view) {
         setIndexPrev();
@@ -99,8 +98,8 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
     }
 
     private void setIndexFwd() {
-        imageSwitcher.setInAnimation(this, R.anim.from_left);
-        imageSwitcher.setOutAnimation(this, R.anim.to_right);
+//        imageSwitcher.setInAnimation(this, R.anim.from_left);
+//        imageSwitcher.setOutAnimation(this, R.anim.to_right);
         index++;
         if (index > length - 1) {
             index = 0;
@@ -117,7 +116,7 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         Glide
                 .with(this)
                 .asBitmap()
-                .load(imageList[index])
+                .load(picsArray[index])
                 .listener(new RequestListener<Bitmap>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
@@ -133,12 +132,6 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
                 .into((ImageView) imageSwitcher.getCurrentView());
     }
 
-    private void initResources() {
-        //TODO исправить
-        imageList = getResources().getStringArray(R.array.places_pics_url);
-        length = imageList.length;
-    }
-
     @Override
     public View makeView() {
         ImageView imageView = new ImageView(this);
@@ -146,7 +139,6 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         imageView.setLayoutParams(new
                 ImageSwitcher.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-        // imageView.setBackgroundColor(0xFF000000);
         return imageView;
     }
 }

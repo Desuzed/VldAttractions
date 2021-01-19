@@ -17,7 +17,6 @@ import com.bumptech.glide.Glide;
 import com.example.vldattractions.ListContentActivity;
 import com.example.vldattractions.MainActivity;
 import com.example.vldattractions.R;
-import com.example.vldattractions.utils.factory.ArraysFactory;
 import com.example.vldattractions.utils.factory.Category;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     public void setItems(Category instance) {
         category = instance;
         captArray = new ArrayList<>(Arrays.asList(category.getCaptionArray()));
-        picsArray = category.getImgArray();
+        picsArray = category.getPreviewImgArray();
         notifyDataSetChanged();
     }
 
