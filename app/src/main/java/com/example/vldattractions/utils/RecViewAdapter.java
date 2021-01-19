@@ -2,6 +2,7 @@ package com.example.vldattractions.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.vldattractions.ListContentActivity;
 import com.example.vldattractions.MainActivity;
 import com.example.vldattractions.R;
+import com.example.vldattractions.utils.factory.Category;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,16 +27,18 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     private List<String> captArray = new ArrayList<>();
     private static final String TAG = "RecViewAdapter";
     private Context contextMainActivity;
-    private String [] picsArray;
- //   public static int categoryIndex;
+    private String[] picsArray;
+    private Typeface typeface;
+    private Category category;
 
     public RecViewAdapter(Context contextMainActivity) {
         this.contextMainActivity = contextMainActivity;
     }
 
-    public void setItems(String[] captionsArray, String [] picsArray) {
-        captArray = new ArrayList<>(Arrays.asList(captionsArray));
-        this.picsArray = picsArray;
+    public void setItems(Category instance) {
+        category = instance;
+        captArray = new ArrayList<>(Arrays.asList(category.getCaptionArray()));
+        picsArray = category.getPreviewImgArray();
         notifyDataSetChanged();
     }
 
@@ -60,7 +64,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
             public void onClick(View view) {
                 Log.i(TAG, "onClick: on bind " + position);
                 Intent intent = new Intent(contextMainActivity, ListContentActivity.class);
-                intent.putExtra("categoryIndex", MainActivity.categoryIndex);
+                intent.putExtra("categoryIndex", MainActivity.index);
                 intent.putExtra("position", position);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 contextMainActivity.startActivity(intent);
@@ -76,23 +80,21 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvItemRV;
         private ImageView imgItemRV;
-        
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgItemRV = itemView.findViewById(R.id.imgItemRV);
             tvItemRV = itemView.findViewById(R.id.tvItemRV);
-            
-//
+            typeface = Typeface.createFromAsset(contextMainActivity.getAssets(), "fonts/PTMono-Regular.ttf");
+            tvItemRV.setTypeface(typeface);
         }
 
-        public void bind(String name, int position) {
-            tvItemRV.setText(name);
+        public void bind(String caption, int position) {
+            tvItemRV.setText(caption);
             Glide
                     .with(contextMainActivity)
                     .load(picsArray[position])
                     .into(imgItemRV);
         }
-
     }
 }

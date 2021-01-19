@@ -1,88 +1,144 @@
 package com.example.vldattractions;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ListContentActivity extends AppCompatActivity {
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.example.vldattractions.utils.factory.ArraysFactory;
+import com.example.vldattractions.utils.factory.Category;
+
+public class ListContentActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory {
     private TextView textView;
-    private ImageView imageView;
+    private ImageSwitcher imageSwitcher;
     private Typeface typeface;
-    private int category = 0;
+    private Category category;
+    private ArraysFactory factory = new ArraysFactory(this);
+    private int categoryIndex = 0;
     private int position = 0;
-    //Массивы с текстовыми ресурсами
-    private int[] placesStr;
-    private int[] restaurantsStr;
-    private int[] hotelsStr;
-    private int[] beachesStr;
-    private int[] rusIslandStr;
-    //Массивы с png ресурсами
-    private int[] placesPng ;
-    private int[] restaurantsPng;
-    private int[] hotelsPng ;
-    private int[] beachesPng ;
-    private String[] rusIslandPng ;
+    private ImageButton backImgBtn, fwdImgBtn;
+    private static final String TAG = "ListContentActivity";
+    private String[] picsArray;
+    private int length;
+    private int index = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_content);
+        setContentView(R.layout.content_layout);
         init();
-        initResources();
-        recieveIntent();
+        receiveIntent();
     }
 
-    private void recieveIntent() {
+    private void receiveIntent() {
         Intent i = getIntent();
         if (i != null) {
-            category = i.getIntExtra("categoryIndex", 0);
+            categoryIndex = i.getIntExtra("categoryIndex", 0);
             position = i.getIntExtra("position", 0);
         }
-        switch (category) {
-            case 0:
-                textView.setText(placesStr[position]);
-                imageView.setImageResource(placesPng[position]);
-                break;
-            case 1:
-                textView.setText(restaurantsStr[position]);
-                break;
-            case 2:
-                textView.setText(hotelsStr[position]);
-                break;
-            case 3:
-                textView.setText(beachesStr[position]);
-                break;
-            case 4:
-                textView.setText(rusIslandStr[position]);
-                //imageView.setImageResource(Integer.parseInt(rusIslandPng[position]));
-                break;
-        }
+        category = factory.getCategory(categoryIndex);
+        picsArray = category.getContentPics(position);
+        length = picsArray.length;
+        int[] textArray = category.getTextArray();
+        textView.setText(textArray[position]);
+        loadImgWithGlide();
+
     }
 
     private void init() {
         textView = findViewById(R.id.textContentView);
-        imageView = findViewById(R.id.imageContent);
-        //Добавили шрифт, скачанный из Google fonts
+        imageSwitcher = findViewById(R.id.imageSwitcher);
+        backImgBtn = findViewById(R.id.back_btn_content);
+        fwdImgBtn = findViewById(R.id.fwd_btn_content);
+        imageSwitcher.setFactory(this);
         typeface = Typeface.createFromAsset(this.getAssets(), "fonts/PTMono-Regular.ttf");
         textView.setTypeface(typeface);
+        Animation inAnimation = new AlphaAnimation(0, 1);
+        inAnimation.setDuration(500);
+        Animation outAnimation = new AlphaAnimation(1, 0);
+        outAnimation.setDuration(500);
+        imageSwitcher.setInAnimation(inAnimation);
+        imageSwitcher.setOutAnimation(outAnimation);
     }
 
-    private void initResources() {
-        placesStr = new int[] {R.string.bridges, R.string.sport_embankment, R.string.cesarevich_embankment, R.string.funicular, R.string.zolotoy_rog_bay, R.string.orlinoe_gnezdo_hill, R.string.frigates, R.string.red_pennant, R.string.st_paul_cathedral, R.string.triumph_gate, R.string.egersheld_lighthouse};
-        restaurantsStr = new int[] {R.string.zuma, R.string.supra, R.string.phali, R.string.oh_my_crab, R.string.rest_height, R.string.pho_viet, R.string.chi_fan, R.string.brugge_pub, R.string.alaska, R.string.holyhop};
-        hotelsStr = new int[] {R.string.marine_wave, R.string.azimut, R.string.lido_central, R.string.holiday_hotel, R.string.pearl_hotel, R.string.kamminn, R.string.apart_hotel_vld, R.string.karmen, R.string.zodiac, R.string.teplo_hotel};
-        beachesStr = new int[] {R.string.shamora, R.string.glass_beach, R.string.egersheld_beach, R.string.anniversary_beach, R.string.kungasny_beach, R.string.silent_bay_beach, R.string.campus_beach};
-        rusIslandStr = new int[] {R.string.tobizin_promontory, R.string.vyatlin_promontory, R.string.ayaks_bay, R.string.campus, R.string.ships_graveyard, R.string.novosilc_troop, R.string.oceanarium, R.string.shkot_island};
-        //Массивы с png ресурсами
-        placesPng = new int[] {R.drawable.rus_island_bridge, R.drawable.sport_embankment, R.drawable.cesarevic_emb, R.drawable.funicular, R.drawable.zolotoy_rog_bay, R.drawable.eagle_hill, R.drawable.frigates, R.drawable.red_pennant, R.drawable.st_paul_cathedral, R.drawable.triumph_gates, R.drawable.lighthouse};
-        restaurantsPng = new int[] {};
-        hotelsPng = new int[] {};
-        beachesPng = new int[] {};
-       // rusIslandPng  = getResources().getStringArray(R.array.pics);
+    private void setIndexPrev() {
+//        imageSwitcher.setInAnimation(this, R.anim.from_right);
+//        imageSwitcher.setOutAnimation(this, R.anim.to_left);
+        index--;
+        if (index < 0) {
+            index = length - 1;
+        }
+    }
+
+    //TODO Glide не кэширует изображения и каждый раз грузит заново при нажатии на кнопки вперед и назад
+    public void onBackClick(View view) {
+        setIndexPrev();
+        Log.i(TAG, "onBackClick: " + index + " length: " + length);
+        loadImgWithGlide();
+    }
+
+    private void setIndexFwd() {
+//        imageSwitcher.setInAnimation(this, R.anim.from_left);
+//        imageSwitcher.setOutAnimation(this, R.anim.to_right);
+        index++;
+        if (index > length - 1) {
+            index = 0;
+        }
+    }
+
+    public void onFwdClick(View view) {
+        setIndexFwd();
+        Log.i(TAG, "onFwdClick: " + index + " length: " + length);
+        loadImgWithGlide();
+    }
+
+    private void loadImgWithGlide() {
+        Glide
+                .with(this)
+                .asBitmap()
+                .load(picsArray[index])
+                .listener(new RequestListener<Bitmap>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+                        imageSwitcher.setImageDrawable(new BitmapDrawable(getResources(), resource));
+                        return true;
+                    }
+                })
+                .into((ImageView) imageSwitcher.getCurrentView());
+    }
+
+    @Override
+    public View makeView() {
+        ImageView imageView = new ImageView(this);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        imageView.setLayoutParams(new
+                ImageSwitcher.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+        return imageView;
     }
 }

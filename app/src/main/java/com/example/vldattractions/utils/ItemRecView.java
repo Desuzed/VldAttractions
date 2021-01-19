@@ -1,4 +1,4 @@
-package com.example.vldattractions;
+package com.example.vldattractions.utils;
 
 public class ItemRecView {
     private String name;
