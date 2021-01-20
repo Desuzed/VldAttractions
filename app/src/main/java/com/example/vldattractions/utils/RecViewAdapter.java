@@ -66,6 +66,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
                 Intent intent = new Intent(contextMainActivity, ListContentActivity.class);
                 intent.putExtra("categoryIndex", MainActivity.index);
                 intent.putExtra("position", position);
+                intent.putExtra("caption", captArray.get(position));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 contextMainActivity.startActivity(intent);
             }

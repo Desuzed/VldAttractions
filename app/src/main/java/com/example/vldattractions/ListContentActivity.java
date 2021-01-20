@@ -15,6 +15,7 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toolbar;
 import android.widget.ViewSwitcher;
 
 import androidx.annotation.Nullable;
@@ -31,6 +32,7 @@ import com.example.vldattractions.utils.factory.Category;
 public class ListContentActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory {
     private TextView textView;
     private ImageSwitcher imageSwitcher;
+    private Toolbar toolbar;
     private Typeface typeface;
     private Category category;
     private ArraysFactory factory = new ArraysFactory(this);
@@ -52,12 +54,17 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
 
     private void receiveIntent() {
         Intent i = getIntent();
+        String caption = "VldAttractions2";
         if (i != null) {
             categoryIndex = i.getIntExtra("categoryIndex", 0);
             position = i.getIntExtra("position", 0);
+            caption = i.getStringExtra("caption");
+           // caption = i.getStringExtra("caption", "VldAttractions");
         }
         category = factory.getCategory(categoryIndex);
         picsArray = category.getContentPics(position);
+        toolbar.setTitle(caption);
+        setActionBar(toolbar);
         length = picsArray.length;
         int[] textArray = category.getTextArray();
         textView.setText(textArray[position]);
@@ -69,6 +76,9 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         textView = findViewById(R.id.textContentView);
         imageSwitcher = findViewById(R.id.imageSwitcher);
         backImgBtn = findViewById(R.id.back_btn_content);
+        toolbar = (Toolbar) findViewById(R.id.toolbarContent);
+       // toolbar.setTitle("1111");
+
         fwdImgBtn = findViewById(R.id.fwd_btn_content);
         imageSwitcher.setFactory(this);
         typeface = Typeface.createFromAsset(this.getAssets(), "fonts/PTMono-Regular.ttf");
