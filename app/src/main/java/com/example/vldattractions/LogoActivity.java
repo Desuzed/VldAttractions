@@ -13,31 +13,31 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logo_activity);
-
-//        Thread thread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    Thread.sleep(1000);
-//                    Intent intent  = new Intent(LogoActivity.this, MainActivity.class );
-//                    startActivity(intent);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//        thread.start();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                    Intent intent  = new Intent(LogoActivity.this, MainActivity.class );
+                    startActivity(intent);
+                    finish();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
     }
 
-    public void onClickStart(View view) {
-        Intent intent  = new Intent(LogoActivity.this, MainActivity.class );
-        startActivity(intent);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
+//    public void onClickStart(View view) {
+//        Intent intent  = new Intent(LogoActivity.this, MainActivity.class );
+//        startActivity(intent);
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//    }
 
     @Override
     protected void onDestroy() {

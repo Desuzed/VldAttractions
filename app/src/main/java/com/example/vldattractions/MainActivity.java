@@ -1,5 +1,6 @@
 package com.example.vldattractions;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_rus_island:
                 fillArray(R.string.menu_rus_island, RusIsland.INDEX);
                 break;
+            case R.id.nav_about:
+                launchActivityAbout();
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + id);
         }
@@ -99,7 +103,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle(R.string.menu_places);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
+    }
 
+    private void launchActivityAbout(){
+        Intent intent = new Intent(MainActivity.this, ActivityAbout.class);
+        startActivity(intent);
+    }
+    @Override
+    public void onBackPressed() {
+      //  super.onBackPressed();
+        moveTaskToBack(true);
+//        Intent startMain = new Intent(Intent.ACTION_MAIN);
+//        startMain.addCategory(Intent.CATEGORY_HOME);
+//        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(startMain);
+       // finish();
     }
 }
 

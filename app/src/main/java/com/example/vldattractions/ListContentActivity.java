@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -50,11 +51,12 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         setContentView(R.layout.content_layout);
         init();
         receiveIntent();
+
     }
 
     private void receiveIntent() {
         Intent i = getIntent();
-        String caption = "VldAttractions2";
+        String caption = "";
         if (i != null) {
             categoryIndex = i.getIntExtra("categoryIndex", 0);
             position = i.getIntExtra("position", 0);
@@ -65,6 +67,8 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         picsArray = category.getContentPics(position);
         toolbar.setTitle(caption);
         setActionBar(toolbar);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        //TODO Опять не работает и ничего не помогает
         length = picsArray.length;
         int[] textArray = category.getTextArray();
         textView.setText(textArray[position]);
@@ -77,8 +81,6 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         imageSwitcher = findViewById(R.id.imageSwitcher);
         backImgBtn = findViewById(R.id.back_btn_content);
         toolbar = (Toolbar) findViewById(R.id.toolbarContent);
-       // toolbar.setTitle("1111");
-
         fwdImgBtn = findViewById(R.id.fwd_btn_content);
         imageSwitcher.setFactory(this);
         typeface = Typeface.createFromAsset(this.getAssets(), "fonts/PTMono-Regular.ttf");
@@ -100,7 +102,6 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         }
     }
 
-    //TODO Glide не кэширует изображения и каждый раз грузит заново при нажатии на кнопки вперед и назад
     public void onBackClick(View view) {
         setIndexPrev();
         Log.i(TAG, "onBackClick: " + index + " length: " + length);
@@ -151,4 +152,21 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         return imageView;
     }
+
+//    @Override
+//    public boolean onNavigateUp() {
+//        onBackPressed();
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                onBackPressed();
+//                return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 }
