@@ -94,7 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void init() {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recView);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         recViewAdapter = new RecViewAdapter(getApplicationContext());
         recyclerView.setAdapter(recViewAdapter);
         category = factory.getCategory(Places.INDEX);

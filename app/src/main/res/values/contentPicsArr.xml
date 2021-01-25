@@ -2,237 +2,249 @@
 
 <resources>
     <string-array name="bridges_content">
-        <item>https://primamedia.gcdn.co/f/main/1279/1278249.jpg?8ffa8dc1df52b3d582e09dfb0952335d</item>
-        <item>https://primorsky.ru/upload/iblock/441/44113ee044c480158ae91ac1b3290aec.jpg</item>
-        <item>https://primamedia.gcdn.co/f/big/639/638748.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.rusIslBridge.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.ZolRogBrd.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.zolRogBridge.jpg</item>
     </string-array>
     <string-array name="sportEmb_content">
-        <item>https://img-fotki.yandex.ru/get/9557/154918759.167/0_e4184_b577513a_orig.jpg</item>
-        <item>https://img-fotki.yandex.ru/get/9311/154918759.166/0_e417a_34b4c86a_orig.jpg</item>
-        <item>https://passenger.rocks/wp-content/uploads/2020/01/sportivnaya-naberezhnaya-vladivostok-1-scaled.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.sportEnbankment.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.SportEmbank.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.sportivnaya-naberezhnaya.jpg</item>
     </string-array>
     <string-array name="cesarEmb_content">
-        <item>https://vladivostok-city.com/uploads/i/bg/54918ad3b96b57.26761311.1164.jpg</item>
-        <item>https://lh3.googleusercontent.com/proxy/iv7rC3nicKDVgpXLgON9WpcwHCBjZmFJzcR0A-PETDvQwrlkfHltM920UvLEqyd_TN8H5H3PjkMU9YstBfu3pjKMz-mC7P8mu-H4RZwSXtYKIKhS5O-vA3QHol8LB7z_GW3_lA</item>
-        <item>https://static.vl.ru/news/1535948025526_default</item>
+        <item>https://rataku.com/images/2021/01/22/3.cesarEmbankment.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.cesarEmb.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.cesEmb.jpg</item>
     </string-array>
     <string-array name="funicular_content">
-        <item>https://vladivostok-city.com/uploads/i/bg/50091ddd185753.00482852.880.jpg</item>
-        <item>https://mir-vpechatleniy.ru/wp-content/uploads/2016/11/%D0%A4%D1%83%D0%BD%D0%B8%D0%BA%D1%83%D0%BB%D0%B5%D1%80-%D0%B2%D0%BB%D0%B0%D0%B4%D0%B8%D0%B2%D1%81%D1%82%D0%BE%D0%BA%D0%B0.jpg</item>
-        <item>https://lh3.googleusercontent.com/proxy/dEHDaGS4Wc-W8aLSeTstHRIdjfHkLcvNq73V4yWH-T6g4kqddW8u2oHV-fM0bILUCEfrsTbpyQc0GrHoDwoRYC89TW6NsZbYISreL2sH496w48TCjg1_qPM3bU6HOmpG4qPxTOFK</item>
+        <item>https://rataku.com/images/2021/01/22/4.funicular.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.funic.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.funicul.jpg</item>
     </string-array>
     <string-array name="zolRogBay_content">
-        <item>https://cs5.pikabu.ru/post_img/big/2015/12/10/4/1449721541199155438.jpg</item>
-        <item>https://vladivostok-city.com/uploads/i/bg/501a89cceb4235.96211692.945.jpg</item>
-        <item>https://vestiprim.ru/uploads/posts/2016-04/thumbs/1459916750_vladivostok-s-mostom.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.zolRBay.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.zolRogBay.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.zolRogBay1.jpg</item>
     </string-array>
     <string-array name="eagleHill_content">
-        <item>https://cs8.pikabu.ru/post_img/big/2017/12/23/1/1513981724190039608.jpg</item>
-        <item>https://img-fotki.yandex.ru/get/5634/124275751.3/0_bbc60_dd24f71e_orig</item>
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/02/24/6e/18/filename-img-2133-jpg.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.eagleHill.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.EagHill.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.EaglHill.jpg</item>
     </string-array>
     <string-array name="fregates_content">
-        <item>https://top10.travel/wp-content/uploads/2017/09/pallada-nadezhda.jpg</item>
-        <item>https://primamedia.ru/f/big/2013/2012888.jpg?58b0c7adb24434afeedd1f7677771113</item>
-        <item>https://parusniki.info/wp-content/uploads/2014/04/Nadezhda.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.PalladaNadejda.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.Pallada.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.Nadejda.jpg</item>
     </string-array>
     <string-array name="redPennant_content">
-        <item>https://www.tourprom.ru/site_media/images/upload/2015/10/2/poiphoto/vympel_1.jpg</item>
-        <item>https://i1.photo.2gis.com/images/geo/25/3518437218101694_34be.jpg</item>
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/07/e8/7d/58/caption.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.redPennant.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.redPenan.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.redPen.jpg</item>
     </string-array>
     <string-array name="cathedral_content">
-        <item>https://static.vl.ru/catalog/1461708375485_big_vlru.jpg</item>
-        <item>https://avatars.mds.yandex.net/get-altay/481843/2a000001622d53355d4f007cf9aa6ee85ec7/XXL</item>
-        <item>https://primamedia.ru/f/big/1277/1276255.jpg?9b630f4770507854b00d17b3899970c0</item>
+        <item>https://rataku.com/images/2021/01/22/9.StPaulCathedral.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.stPaul.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.cathedral.jpg</item>
     </string-array>
     <string-array name="triumphGate_content">
-        <item>https://www.vladseatour.ru/img/26971.png?1441170081</item>
-        <item>https://static1-repo.aif.ru/1/61/228319/bd51a0e39352e53ef4a61c6a016bdc2a.jpg</item>
-        <item>https://tourism.restexpert.ru/uploads/place/1473/644x483/1513879415046394800.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.triumGate1.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.-gates.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.triumGate.jpg</item>
     </string-array>
     <string-array name="egersheld_content">
-        <item>https://gor-travel.ru/wp-content/uploads/2020/05/mayak-egersheld-3.jpg</item>
-        <item>https://i.pinimg.com/originals/d0/c2/05/d0c205bade527dbc588ddc357d08de08.jpg</item>
-        <item>https://disotzov.ru/wp-content/uploads/2020/07/5c4b226215e9f91baf0984c7-e1594240593460.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/11.egersheld.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/11.eger.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/11.egersheld11.jpg</item>
     </string-array>
 <!--__________________________________________________________________________________________________________________________________________-->
     <string-array name="zuma_content">
-        <item>https://lh3.googleusercontent.com/proxy/wGd3gnDXDGwRVkE9_2H1XvPrsM-_q7FRO2jkjFleuRPhoxNss2xG0Qo9dlC5_bmhKIt7wb0GG8ZoDzzbPk1rdotzJNVBF-z3ByrB3yCYfg</item>
-        <item>https://assets.allcafe.ru/k/places/canvas/930x530/pic/places/7704/4917a3d6d4dae3b749db411c9d8f6634.jpeg</item>
-        <item>https://irecommend.ru/sites/default/files/product-images/10297/IJXminu1CKRostNTcPFyyQ.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.zumma.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.zuma.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.zumaa.jpg</item>
     </string-array>
     <string-array name="supra_content">
-        <item>https://static.vl.ru/catalog/1539248967885_big_vlru.jpg</item>
-        <item>https://primamedia.ru/f/big/1135/1134055.jpg</item>
-        <item>https://primamedia.ru/f/big/1135/1134064.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.supraa.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.supra.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.supra1.jpg</item>
     </string-array>
     <string-array name="phali_content">
-        <item>https://phali-hinkali.ru/vld/pimages/Restorans13/4c2595ae77-1_1920x.jpg</item>
-        <item>https://phali-hinkali.ru/vld/pimages/Restorans13/c408061826-4_1920x.jpg</item>
-        <item>https://phali-hinkali.ru/vld/pimages/Restorans11/58c41513d9-5_1920x.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.phali-hinkali.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.phali.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.phaliHinkali.jpg</item>
     </string-array>
     <string-array name="crab_content">
-        <item>https://static.vl.ru/catalog/1538369620423_big_vlru.jpg</item>
-        <item>https://img.the-village.ru/VDvNha1Ut8FiwhMlAhQHmO3ObtKGWQtbhonJOXmvX80/rs:fill:600:400/q:88/plain/post-image_featured/PMPiktGEGsoqr1lziO7otg.jpg</item>
-        <item>https://cdn.the-village.ru/the-village.ru/post_image-image/CB3eqTMvIUrW8tVxdIaNGQ.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.crab.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.oh-crab.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.oh-my-crab.jpg</item>
     </string-array>
     <string-array name="visota_content">
-        <item>https://primamedia.ru/f/big/977/976333.jpg?5ddfd8b7352d32a2140a188f7725b205</item>
-        <item>https://primamedia.gcdn.co/f/big/977/976520.jpg</item>
-        <item>https://assets.allcafe.ru/k/places/canvas/1920x1080/pic/places/30420/2013c696e8962c196f8443cd0bdd3fb9.jpeg</item>
+        <item>https://rataku.com/images/2021/01/22/5.visot.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.vis.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.visota.jpg</item>
     </string-array>
     <string-array name="phoviet_content">
-        <item>https://avatars.mds.yandex.net/get-altay/1880524/2a0000016f91c08d07a8be88394ad0ec9d2b/XXL</item>
-        <item>https://www.delivery-club.ru/naturmort_logo/Pho_viet.jpg</item>
-        <item>https://10619-2.s.cdn12.com/rests/original/403_117942931.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.pho.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.phoviet.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.pho_viet.jpg</item>
     </string-array>
     <string-array name="chifan_content">
-        <item>https://10619-2.s.cdn12.com/rests/original/109_507800671.jpg</item>
-        <item>https://static.vl.ru/catalog/1565915191565_big_vlru.jpg</item>
-        <item>https://avatars.mds.yandex.net/get-altay/2356223/2a00000173bd73963ae0e7edd6967d592122/XXL</item>
+        <item>https://rataku.com/images/2021/01/22/7.chifan.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.chi_fan.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.chifaan.jpg</item>
     </string-array>
     <string-array name="brugge_content">
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/12/e1/b4/cb/caption.jpg</item>
-        <item>https://avatars.mds.yandex.net/get-altay/367512/2a0000015d82bdf7209640952c3937475993/XXL</item>
-        <item>https://avatars.mds.yandex.net/get-altay/226077/2a0000015d82be09420ad7d42b65598f1198/XXL</item>
+        <item>https://rataku.com/images/2021/01/22/8.brugge.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.brugge_pub.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.bruggePub.jpg</item>
     </string-array>
     <string-array name="alaska_content">
-        <item>https://cdn.the-village.ru/the-village.ru/post_image-image/TsFGDsmTPbjV84s_70VQ7Q.jpg</item>
-        <item>https://cdn.the-village.ru/the-village.ru/post_image-image/LfBXY6_elTYE7eutR5l4Rw.jpg</item>
-        <item>https://cdn.the-village.ru/the-village.ru/post_image-image/gdl6T86igvHRakBlJGbq5w.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.alyaska.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.alyaskaa.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.alyas.jpg</item>
     </string-array>
     <string-array name="holyhop_content">
-        <item>https://static-cdn1.vigbo.tech/u4010/2654/blog/562959/1183853/16242335/1000-vladivostok_wedding_gudenko_reactive-45cab6486618acafdcc13fa2ba004582.jpg</item>
-        <item>https://static.vl.ru/catalog/1499648778550_big_vlru.jpg</item>
-        <item>https://static-cdn1.vigbo.tech/u4010/2654/blog/562959/1183853/16242335/1000-vladivostok_wedding_gudenko_reactive-10e640d9a3821bbbfaa8b6f15a74b3f4.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.holy_hop.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.holyHop.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.holyHop1.jpg</item>
     </string-array>
 <!--__________________________________________________________________________________________________________________________________________________________-->
     <string-array name="marine_content">
-        <item>https://cf.bstatic.com/images/hotel/max1024x768/261/261973686.jpg</item>
-        <item>https://edem-v-gosti.ru/upload/resize_cache/iblock/1ce/600_450_1/23.jpg</item>
-        <item>https://tropki.ru/images/hotels/b172566366/large/vladivostok-hotel-marine-wave-26.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.marineWave.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.marineWave2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.marineWave3.jpg</item>
     </string-array>
     <string-array name="azimut_content">
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/08/44/fc/2d/azimut-hotel-vladivostok.jpg</item>
-        <item>https://avatars.mds.yandex.net/get-altay/923092/2a000001615708e12b8cd52b43b4d535b6b3/XXL</item>
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/07/e0/8a/d7/caption.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.azimut.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.azimut2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.azimut3.jpg</item>
     </string-array>
     <string-array name="lido_content">
-        <item>https://cf.bstatic.com/images/hotel/max1024x768/216/216641491.jpg</item>
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/18/01/99/1a/lido-central-hotel.jpg</item>
-        <item>https://static.baza.farpost.ru/v/1559560922936_bulletin</item>
+        <item>https://rataku.com/images/2021/01/22/3.lidoCentral.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.lidoCentral2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.lidoCentral3.jpg</item>
     </string-array>
     <string-array name="holiday_content">
-        <item>https://cf.bstatic.com/images/hotel/max1024x768/263/263396308.jpg</item>
-        <item>https://thumbnails.trvl-media.com/H2PMAMc5u-S8uq1Vr_fleDawU4Q=/773x530/smart/filters:quality(60)/images.trvl-media.com/hotels/47000000/46240000/46236000/46235982/2c952dcf_z.jpg</item>
-        <item>https://cf.bstatic.com/images/hotel/max1280x900/263/263398894.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.holidayHotel.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.holidayHotel2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.holidayHotel3.jpg</item>
     </string-array>
     <string-array name="pearl_content">
-        <item>https://cf.bstatic.com/images/hotel/max1024x768/192/192147191.jpg</item>
-        <item>https://cf.bstatic.com/images/hotel/max1280x900/229/229472815.jpg</item>
-        <item>https://pix10.agoda.net/hotelImages/323/323143/323143_17042711450052662407.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.pearlHotel.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.pearlHotel2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.pearlHotel3.jpg</item>
     </string-array>
     <string-array name="kaminn_content">
-        <item>https://cf.bstatic.com/images/hotel/max1024x768/157/157867471.jpg</item>
-        <item>https://cf.bstatic.com/images/hotel/max1280x900/156/156249949.jpg</item>
-        <item>https://edem-v-gosti.ru/upload/resize_cache/iblock/dc5/600_450_1/13.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.kamInn.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.kamInn2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.kamInn3.jpg</item>
     </string-array>
     <string-array name="arbat_content">
-        <item>https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_650,q_auto,w_1000/itemimages/25/54/2554062_v3.jpeg</item>
-        <item>https://tropki.ru/images/hotels/b133463111/large/vladivostok-aparthotel-arbat-vladivostok-29.jpg</item>
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/06/1a/4e/3a/caption.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.arbat.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.arbat2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.arbat3.jpg</item>
     </string-array>
     <string-array name="karmen_content">
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/12/2a/53/1d/caption.jpg</item>
-        <item>https://cdn.101hotels.com/uploads/image/hotel_3/64776/36954159_mobile.jpg</item>
-        <item>https://avatars.mds.yandex.net/get-altay/2359468/2a00000171fa24843d2ae14af96bb62b6c1f/XXL</item>
+        <item>https://rataku.com/images/2021/01/22/8.karmen.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.karmen2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.karmen3.jpg</item>
     </string-array>
     <string-array name="zodiac_content">
-        <item>https://cf.bstatic.com/images/hotel/max1024x768/104/104572441.jpg</item>
-        <item>https://cf.bstatic.com/images/hotel/max1280x900/120/120386488.jpg</item>
-        <item>https://media-cdn.tripadvisor.com/media/photo-s/1a/9d/34/0d/makura.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.zodiac.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.zodiac2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.zodiac3.jpg</item>
     </string-array>
     <string-array name="teplo_content">
-        <item>https://static.readytotrip.com/upload/information_system_24/5/8/6/item_586211/photo_16924532.jpg</item>
-        <item>https://cf.bstatic.com/images/hotel/max1024x768/159/159594397.jpg</item>
-        <item>https://cf.bstatic.com/images/hotel/max1024x768/135/135172297.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.teplo.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.teplo2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/10.teplo3.jpg</item>
     </string-array>
 <!--  ____________________________________________________________________________________________________  -->
     <string-array name="shamora_content">
-        <item>https://static.vl.ru/catalog/1511752414507_big_vlru.jpg</item>
-        <item>https://vladivostok-city.com/uploads/i/bg/501f82fb892774.15138770.956.jpg</item>
-        <item>https://static.baza.farpost.ru/v/1557394261275_bulletin</item>
+        <item>https://rataku.com/images/2021/01/22/1.shamora.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.shamora2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.shamora3.jpg</item>
     </string-array>
     <string-array name="steklyan_content">
-        <item>https://vestiprim.ru/uploads/posts/2018-07/thumbs/1532259631_buhta-steklyannaya.jpg</item>
-        <item>https://www.kp.ru/russia/wp-content/uploads/2019/09/steklyannaya-buhta-1330-530x322.jpg</item>
-        <item>https://tourwebring.com/wp-content/uploads/2019/07/stekljanaja.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.steklyashka.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.steklyashka2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/2.steklyashka3.jpg</item>
     </string-array>
     <string-array name="egersheldBeach_content">
-        <item>https://lh3.googleusercontent.com/proxy/-DTvAXkc9kFfQM4ROQWjWuN4p78-u8gy-yMHcpLy0iq8o3exUoHc9R2lIvBQ47FNdCHyrckrqtgJatBWF4JISoUyDHBmkooMnDhrg7J5kUhsRZEFgQ8eqRjanbM6kg</item>
-        <item>https://avatars.mds.yandex.net/get-zen_doc/2355127/pub_5fa0094f6f1ecc136f26ffc4_5fa1b3ee585202096719b855/scale_1200</item>
-        <item>https://cs9.pikabu.ru/post_img/big/2020/01/23/8/1579783822120170403.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.egersheld.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.egersh2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/3.egersheld3.jpg</item>
     </string-array>
     <string-array name="ubiley_content">
-        <item>https://aif-s3.aif.ru/images/014/268/59bf797900d98bcc1d07a26fd5707fb6.jpg</item>
-        <item>https://primamedia.gcdn.co/f/big/1277/1276771.jpg?31ef3076a8398cefbacc7e18a83e05e1</item>
-        <item>https://primamedia.gcdn.co/f/big/1277/1276752.jpg?025f8e51cf6168edb6af263390218b0c</item>
+        <item>https://rataku.com/images/2021/01/22/4.ubileyniy.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.ubileyniy2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/4.ubileyniy3.jpg</item>
     </string-array>
     <string-array name="kungasny_content">
-        <item>https://img.tourister.ru/files/2/6/7/0/1/9/1/7/original.jpg</item>
-        <item>https://i1.photo.2gis.com/images/geo/25/3518437229570475_5e35.jpg</item>
-        <item>https://vladnews.ru/uploads/news/2020/06/03/thumb_393171_news_xxxl.jpeg</item>
+        <item>https://rataku.com/images/2021/01/22/5.kungasniy.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.kungasniy2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.kungasniy3.jpg</item>
     </string-array>
     <string-array name="silentBay_content">
-        <item>https://lh3.googleusercontent.com/-A2EY3H__D6U/UMR5z1P_ZJI/AAAAAAAAMGo/nVq2W9VkF7M/s800/ag_2011-08-24_39_1200.jpg</item>
-        <item>https://lh3.googleusercontent.com/-f7d3G4t7BWs/UMR5wX5Z6BI/AAAAAAAAMGg/O0Ik5bre0AQ/s900/ag_2011-08-24_38_1200.jpg</item>
-        <item>https://lh4.googleusercontent.com/-YNjD7ElNhN0/UMR5oO6P4mI/AAAAAAAAMGM/AY7ILmSrWk8/s800/ag_2011-08-24_30_1200.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.silentBay.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.silentBay2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/6.silentBay3.jpg</item>
     </string-array>
     <string-array name="kampusBeach_content">
-        <item>https://img06.rl0.ru/afisha/-x-i/daily.afisha.ru/uploads/images/9/87/9875976b2b0b44a08d765672e56bb7d6.png</item>
-        <item>https://i1.photo.2gis.com/images/geo/25/3518437242928991_1c95.jpg</item>
-        <item>https://i1.photo.2gis.com/images/geo/25/3518437221069990_5e85.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.kampus.png</item>
+        <item>https://rataku.com/images/2021/01/22/7.kampus2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/7.kampus3.jpg</item>
+    </string-array>
+
+    <string-array name="novik_content">
+        <item>https://rataku.com/images/2021/01/22/8.novik.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.novik2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/8.novik3.jpg</item>
+    </string-array>
+
+    <string-array name="patrokl_content">
+        <item>https://rataku.com/images/2021/01/22/9.patrokol.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.patrokol2.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/9.patrokol3.jpg</item>
     </string-array>
 <!--    _______________________________________________________________________________________________________________-->
     <string-array name="tobizin_content">
-        <item>https://static.vl.ru/news/1539778808330_default</item>
-        <item>https://www.vl.ru/afisha/uploads/events/afd/112084_big.jpeg?v=1562932676</item>
-        <item>https://cs8.pikabu.ru/post_img/big/2016/08/15/3/1471232995118979864.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/1.tobizin2.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/1.tobizin.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/1.tobizin3.jpg</item>
     </string-array>
     <string-array name="vyatlin_content">
-        <item>https://tourdv.ru/wp-content/uploads/2019/08/Mys-Vyatlina-1.jpg</item>
-        <item>https://idilesom.com/files/photos/places/b/59f6ee48a08ee_1509355080.JPG</item>
-        <item>https://cs10.pikabu.ru/post_img/2019/05/19/3/1558237361144178272.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/2.vyatlin.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/2.vyatlin2.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/2.vyatlin3.jpg</item>
     </string-array>
     <string-array name="ajaks_content">
-        <item>https://lh3.googleusercontent.com/proxy/XvU0CjFXkQQiZAt2e5sZjjvpUaeFq9y3v5m1GovaSTFpT4Exs5j1fzNQMls62AvzMCa5PNBIKt1aCGlkTEVDJzAeIhLtHEm1pZDzJIdRXgah3pmNgvFgDNUq</item>
-        <item>https://sibiryak-info.ru/wp-content/uploads/2018/05/kampus.jpg</item>
-        <item>https://i.pinimg.com/originals/55/1b/9b/551b9bd1198173d4b04915e5e819ed66.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/3.ajax.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/3.ajax2.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/3.ajax3.jpg</item>
     </string-array>
     <string-array name="dvfu_content">
-        <item>https://www.primorsky.ru/upload/resize_cache/iblock/106/750_491_2/10631ce3ef0d1a1ac323d31c4867330b.jpg</item>
-        <item>https://www.atomic-energy.ru/files/images/2016/12/dvfu.jpg</item>
-        <item>https://lh3.googleusercontent.com/proxy/Dz22iqOSvXse_4Ry9J59cuh3qabgW1o_CHNEIq3uo8Kd-KhGAZYwuSJ79OUa2P5Ckebc2oI4ISWkPuKKABbzOLnugVY-qw21LJv3Czt5</item>
+        <item>https://rataku.com/images/2021/01/23/4.dvfu.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/4.dvfu2.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/4.dvfu3.jpg</item>
     </string-array>
     <string-array name="korabl_content">
-        <item>https://a.d-cd.net/fMAAAgDLP2A-960.jpg</item>
-        <item>https://a.d-cd.net/WcAAAgDLP2A-960.jpg</item>
-        <item>https://a.d-cd.net/J8AAAgDLP2A-960.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/5.korabli.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/5.korabli2.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/5.korabli3.jpg</item>
     </string-array>
     <string-array name="novosilc_content">
-        <item>https://img-fotki.yandex.ru/get/6622/172291140.4/0_aa447_f3e22948_XL.jpg</item>
-        <item>https://img-fotki.yandex.ru/get/6412/51604349.ba/0_7f6e3_a268a698_XXL.jpg</item>
-        <item>https://lookatvladivostok.ru/upload_files/photos/prev/6969_14866902151.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/6.novosilc1.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/6.novosilc.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/6.novosilc3.jpg</item>
     </string-array>
     <string-array name="okeanarium_content">
-        <item>https://sdelanounas.ru/i/c/3/r/f_c3RvcmFnZTEuc3RhdGljLml0bWFnZXMuY29tL2kvMTYvMDkwMy9oXzE0NzI5MzA1MDlfMzU5NTg3Ml9hNTVkZGM5NmY2LmpwZw==.jpeg</item>
-        <item>https://iq.domostroynn.ru/qlns0vtuk59ti_1erjq60/primorskiy-okeanarium-na-ostrove-russkiy-foto-1.jpg</item>
-        <item>https://vladivostok.travel/upload/iblock/e43/e43972b639d90493aea235a828b5ea5a.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/7.okeanarium.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/7.okeanarium2.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/7.okeanarium3.jpg</item>
     </string-array>
     <string-array name="shkot_content">
-        <item>https://vladnews.ru/uploads/news/2018/08/15/thumb_286617_news_xxxl.jpeg</item>
-        <item>https://ic.pics.livejournal.com/zorg_sd/72909122/50008/50008_900.jpg</item>
-        <item>https://vladnews.ru/uploads/news/2018/04/09/thumb_264313_news_xxxl.jpeg</item>
+        <item>https://rataku.com/images/2021/01/23/8.shkot.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/8.shkot2.jpg</item>
+        <item>https://rataku.com/images/2021/01/23/8.shkot3.jpg</item>
     </string-array>
 </resources>

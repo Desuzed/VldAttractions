@@ -31,6 +31,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     private Typeface typeface;
     private Category category;
 
+
     public RecViewAdapter(Context contextMainActivity) {
         this.contextMainActivity = contextMainActivity;
     }
@@ -58,6 +59,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder: \n holder.getAdapterPosition() = " + holder.getAdapterPosition() + "; \n holder.getLayoutPosition() = " + holder.getLayoutPosition() + "; \n holder.getOldPosition() "+ holder.getOldPosition());
         holder.bind(captArray.get(position), position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
