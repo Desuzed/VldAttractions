@@ -20,7 +20,9 @@ public class Swimming implements Category {
                 R.string.anniversary_beach,
                 R.string.kungasny_beach,
                 R.string.silent_bay_beach,
-                R.string.campus_beach};
+                R.string.campus_beach,
+                R.string.novic_beach,
+                R.string.patrokl_beach};
         return textArr;
     }
 
@@ -45,7 +47,9 @@ public class Swimming implements Category {
         String[] arr5 = context.getResources().getStringArray(R.array.kungasny_content);
         String[] arr6 = context.getResources().getStringArray(R.array.silentBay_content);
         String[] arr7 = context.getResources().getStringArray(R.array.kampusBeach_content);
-        String[][] imgArray = {arr1, arr2, arr3, arr4, arr5, arr6, arr7};
+        String[] arr8 = context.getResources().getStringArray(R.array.novik_content);
+        String[] arr9 = context.getResources().getStringArray(R.array.patrokl_content);
+        String[][] imgArray = {arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9};
         return imgArray[position];
     }
 }
