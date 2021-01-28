@@ -1,4 +1,4 @@
-package com.example.vldattractions.utils.factory;
+package com.example.vldattractions.factory;
 
 import android.content.Context;
 
@@ -7,13 +7,17 @@ import com.example.vldattractions.R;
 public class RusIsland implements Category {
     public static final int INDEX = 4;
     private Context context;
+    private VldObject vldObject;
+    private int[] descriptionTxtArr;
+    private String[][] imgArray;
 
     public RusIsland(Context appContext) {
         this.context = appContext;
+        descriptionTxtArr = getDescriptionTxtArr();
+        imgArray = getContentPics();
     }
 
-    @Override
-    public int[] getTextArray() {
+    public int[] getDescriptionTxtArr(){
         int[] textArr = {R.string.tobizin_promontory,
                 R.string.vyatlin_promontory,
                 R.string.ayaks_bay,
@@ -37,8 +41,7 @@ public class RusIsland implements Category {
         return captionsArray;
     }
 
-    @Override
-    public String[] getContentPics(int position) {
+    public String[][] getContentPics() {
         String []arr1 = context.getResources().getStringArray(R.array.tobizin_content);
         String []arr2 = context.getResources().getStringArray(R.array.vyatlin_content);
         String []arr3 = context.getResources().getStringArray(R.array.ajaks_content);
@@ -47,8 +50,14 @@ public class RusIsland implements Category {
         String []arr6 = context.getResources().getStringArray(R.array.novosilc_content);
         String []arr7 = context.getResources().getStringArray(R.array.okeanarium_content);
         String []arr8 = context.getResources().getStringArray(R.array.shkot_content);
-        String[][] imgArray = {arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8};
+        imgArray = new String[][]{arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8};
 
-        return imgArray[position];
+        return imgArray;
+    }
+
+    @Override
+    public VldObject getVldObject(int position) {
+        vldObject = new VldObject(descriptionTxtArr[position], imgArray[position]);
+        return vldObject;
     }
 }

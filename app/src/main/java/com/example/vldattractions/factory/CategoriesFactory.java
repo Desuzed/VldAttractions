@@ -1,10 +1,10 @@
-package com.example.vldattractions.utils.factory;
+package com.example.vldattractions.factory;
 
 import android.content.Context;
 
-public class ArraysFactory {
+public class CategoriesFactory {
     Context context;
-    public ArraysFactory(Context context) {
+    public CategoriesFactory(Context context) {
         this.context = context;
     }
 

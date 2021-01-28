@@ -4,19 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Switch;
 
 import com.example.vldattractions.utils.RecViewAdapter;
-import com.example.vldattractions.utils.factory.ArraysFactory;
-import com.example.vldattractions.utils.factory.Category;
-import com.example.vldattractions.utils.factory.Food;
-import com.example.vldattractions.utils.factory.Hotels;
-import com.example.vldattractions.utils.factory.Places;
-import com.example.vldattractions.utils.factory.RusIsland;
-import com.example.vldattractions.utils.factory.Swimming;
+import com.example.vldattractions.factory.CategoriesFactory;
+import com.example.vldattractions.factory.Category;
+import com.example.vldattractions.factory.Food;
+import com.example.vldattractions.factory.Hotels;
+import com.example.vldattractions.factory.Places;
+import com.example.vldattractions.factory.RusIsland;
+import com.example.vldattractions.factory.Swimming;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,21 +30,24 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static int index = 0;
     private static final String TAG = "MainActivity";
+    private NavigationView navigationView;
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private RecViewAdapter recViewAdapter;
-    private ArraysFactory factory = new ArraysFactory(this);
+    private CategoriesFactory factory = new CategoriesFactory(this);
     private Category category;
+    private Switch themeSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_places);
         toggle.syncState();
     }
 
@@ -82,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+
+
     private void fillArray(int title, int index) {
         toolbar.setTitle(title);
         this.index = index;
@@ -89,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recViewAdapter.clearItems();
         recViewAdapter.setItems(category);
         recViewAdapter.notifyDataSetChanged();
+
     }
 
     private void init() {
@@ -104,12 +113,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle(R.string.menu_places);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
+        themeSwitch = (Switch) findViewById(R.id.switchDarkNight);
+//        if  (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
+//            themeSwitch.setChecked(true);
+//        }
+
+//        int currentNightMode = getResources().getConfiguration().uiMode
+//                & Configuration.UI_MODE_NIGHT_MASK;
+//        if (currentNightMode==Configuration.UI_MODE_NIGHT_YES){
+//            themeSwitch.setChecked(true);
+//        }
+//        switch (currentNightMode) {
+//            case Configuration.UI_MODE_NIGHT_NO:
+//
+//            case Configuration.UI_MODE_NIGHT_YES:
+//                // Night mode is active, we're at night!
+//            case Configuration.UI_MODE_NIGHT_UNDEFINED:
+//                // We don't know what mode we're in, assume notnight
+//        }
+//        themeSwitch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//              //  navigationView.setCheckedItem(R.id.nav_places);
+////                finish();
+////                startActivity(new Intent(MainActivity.this, MainActivity.this.getClass()));
+//            }
+//        });
+    }
+
+    public void onSwitchClick (View view){
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+         //   themeSwitch.setChecked(true);
+        }
+
     }
 
     private void launchActivityAbout(){
         Intent intent = new Intent(MainActivity.this, ActivityAbout.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
     @Override
     public void onBackPressed() {
       //  super.onBackPressed();

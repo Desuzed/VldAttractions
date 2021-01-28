@@ -1,4 +1,4 @@
-package com.example.vldattractions.utils.factory;
+package com.example.vldattractions.factory;
 
 import android.content.Context;
 
@@ -7,13 +7,17 @@ import com.example.vldattractions.R;
 public class Hotels implements Category {
     public static final int INDEX = 2;
     private Context context;
+    private VldObject vldObject;
+    private int[] descriptionTxtArr;
+    private String[][] imgArray;
 
     public Hotels(Context appContext) {
         this.context = appContext;
+        descriptionTxtArr = getDescriptionTxtArr();
+        imgArray = getContentPics();
     }
 
-    @Override
-    public int[] getTextArray() {
+    private int[] getDescriptionTxtArr() {
         int[] textArr = {R.string.marine_wave,
                 R.string.azimut,
                 R.string.lido_central,
@@ -40,7 +44,12 @@ public class Hotels implements Category {
     }
 
     @Override
-    public String[] getContentPics(int position) {
+    public VldObject getVldObject(int position) {
+        vldObject = new VldObject(descriptionTxtArr[position], imgArray[position]);
+        return vldObject;
+    }
+
+    public String[][] getContentPics() {
         String[] arr1 = context.getResources().getStringArray(R.array.marine_content);
         String[] arr2 = context.getResources().getStringArray(R.array.azimut_content);
         String[] arr3 = context.getResources().getStringArray(R.array.lido_content);
@@ -51,7 +60,7 @@ public class Hotels implements Category {
         String[] arr8 = context.getResources().getStringArray(R.array.karmen_content);
         String[] arr9 = context.getResources().getStringArray(R.array.zodiac_content);
         String[] arr10 = context.getResources().getStringArray(R.array.teplo_content);
-        String[][] imgArray = {arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9, arr10};
-        return imgArray[position];
+        imgArray = new String[][]{arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9, arr10};
+        return imgArray;
     }
 }

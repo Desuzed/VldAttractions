@@ -1,16 +1,15 @@
 package com.example.vldattractions;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
@@ -27,8 +26,10 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.example.vldattractions.utils.factory.ArraysFactory;
-import com.example.vldattractions.utils.factory.Category;
+import com.example.vldattractions.utils.MapsFragment;
+import com.example.vldattractions.factory.CategoriesFactory;
+import com.example.vldattractions.factory.Category;
+import com.example.vldattractions.factory.VldObject;
 
 public class ListContentActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory {
     private TextView textView;
@@ -36,7 +37,8 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
     private Toolbar toolbar;
     private Typeface typeface;
     private Category category;
-    private ArraysFactory factory = new ArraysFactory(this);
+    private CategoriesFactory factory = new CategoriesFactory(this);
+    private VldObject vldObject;
     private int categoryIndex = 0;
     private int position = 0;
     private ImageButton backImgBtn, fwdImgBtn;
@@ -44,15 +46,26 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
     private String[] picsArray;
     private int length;
     private int index = 0;
-
+    private MapsFragment mapsFragment;
+    private FragmentTransaction ft;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_layout);
         init();
         receiveIntent();
-
+        createFragment();
     }
+
+
+    private void createFragment (){
+        mapsFragment = new MapsFragment();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, mapsFragment, null)
+                .commit();
+    }
+
+
 
     private void receiveIntent() {
         Intent i = getIntent();
@@ -64,17 +77,39 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
            // caption = i.getStringExtra("caption", "VldAttractions");
         }
         category = factory.getCategory(categoryIndex);
-        picsArray = category.getContentPics(position);
+        vldObject = category.getVldObject(position);
+        picsArray = vldObject.getContentPics();
+      //  picsArray = category.getContentPics(position);
         toolbar.setTitle(caption);
         setActionBar(toolbar);
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         //TODO Опять не работает и ничего не помогает
         length = picsArray.length;
-        int[] textArray = category.getTextArray();
-        textView.setText(textArray[position]);
+        int descriptionText = vldObject.getDescriptionTextRes();
+       // int[] textArray = category.getTextArray();
+        textView.setText(descriptionText);
         loadImgWithGlide();
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void init() {
         textView = findViewById(R.id.textContentView);

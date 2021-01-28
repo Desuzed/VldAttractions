@@ -17,7 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.vldattractions.ListContentActivity;
 import com.example.vldattractions.MainActivity;
 import com.example.vldattractions.R;
-import com.example.vldattractions.utils.factory.Category;
+import com.example.vldattractions.factory.Category;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,13 +59,16 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder: \n holder.getAdapterPosition() = " + holder.getAdapterPosition() + "; \n holder.getLayoutPosition() = " + holder.getLayoutPosition() + "; \n holder.getOldPosition() "+ holder.getOldPosition());
+       // Log.d(TAG, "onBindViewHolder: \n holder.getAdapterPosition() = " + holder.getAdapterPosition() + "; \n holder.getLayoutPosition() = " + holder.getLayoutPosition() + "; \n holder.getOldPosition() "+ holder.getOldPosition());
         holder.bind(captArray.get(position), position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i(TAG, "onClick: on bind " + position);
                 Intent intent = new Intent(contextMainActivity, ListContentActivity.class);
+                //TODO Сделать через бандл, чтобы объект создавался один раз
+//                Bundle bundle = new Bundle();
+               // intent.putExtra()
                 intent.putExtra("categoryIndex", MainActivity.index);
                 intent.putExtra("position", position);
                 intent.putExtra("caption", captArray.get(position));

@@ -23,4 +23,6 @@
     <style name="Theme.VldAttractions.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.VldAttractions.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
 </resources>
