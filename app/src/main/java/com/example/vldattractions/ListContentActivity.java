@@ -1,6 +1,5 @@
 package com.example.vldattractions;
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
@@ -32,7 +31,7 @@ import com.example.vldattractions.factory.Category;
 import com.example.vldattractions.factory.VldObject;
 
 public class ListContentActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory {
-    private TextView textView;
+    private TextView tvDescription, tvAddress, tvInfo, tvLink;
     private ImageSwitcher imageSwitcher;
     private Toolbar toolbar;
     private Typeface typeface;
@@ -47,7 +46,6 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
     private int length;
     private int index = 0;
     private MapsFragment mapsFragment;
-    private FragmentTransaction ft;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,15 +55,12 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
         createFragment();
     }
 
-
     private void createFragment (){
-        mapsFragment = new MapsFragment();
+        mapsFragment = new MapsFragment(vldObject.getCoordinates(), vldObject.getMapPointCaption());
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, mapsFragment, null)
                 .commit();
     }
-
-
 
     private void receiveIntent() {
         Intent i = getIntent();
@@ -74,52 +69,35 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
             categoryIndex = i.getIntExtra("categoryIndex", 0);
             position = i.getIntExtra("position", 0);
             caption = i.getStringExtra("caption");
-           // caption = i.getStringExtra("caption", "VldAttractions");
         }
         category = factory.getCategory(categoryIndex);
         vldObject = category.getVldObject(position);
         picsArray = vldObject.getContentPics();
-      //  picsArray = category.getContentPics(position);
         toolbar.setTitle(caption);
         setActionBar(toolbar);
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         //TODO Опять не работает и ничего не помогает
         length = picsArray.length;
         int descriptionText = vldObject.getDescriptionTextRes();
-       // int[] textArray = category.getTextArray();
-        textView.setText(descriptionText);
+        tvDescription.setText(descriptionText);
         loadImgWithGlide();
-
+        tvAddress.setText("Адрес объекта: " + vldObject.getAddress());
+        tvInfo.setText("Дополнительную информацию можно посмотреть по ссылке:");
+        tvLink.setText(vldObject.getUrlInfo());
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void init() {
-        textView = findViewById(R.id.textContentView);
+        tvDescription = findViewById(R.id.tvContentDescribtion);
+        tvAddress = findViewById(R.id.tvAddress);
+        tvInfo = findViewById(R.id.tvInfo);
+        tvLink = findViewById(R.id.tvLink);
         imageSwitcher = findViewById(R.id.imageSwitcher);
-        backImgBtn = findViewById(R.id.back_btn_content);
+      //  backImgBtn = findViewById(R.id.back_btn_content);
+       // fwdImgBtn = findViewById(R.id.fwd_btn_content);
         toolbar = (Toolbar) findViewById(R.id.toolbarContent);
-        fwdImgBtn = findViewById(R.id.fwd_btn_content);
         imageSwitcher.setFactory(this);
         typeface = Typeface.createFromAsset(this.getAssets(), "fonts/PTMono-Regular.ttf");
-        textView.setTypeface(typeface);
+        tvDescription.setTypeface(typeface);
         Animation inAnimation = new AlphaAnimation(0, 1);
         inAnimation.setDuration(500);
         Animation outAnimation = new AlphaAnimation(1, 0);

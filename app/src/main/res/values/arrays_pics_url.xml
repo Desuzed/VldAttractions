@@ -3,10 +3,10 @@
 <resources>
     <string-array name="places_pics_url">
         <item>https://rataku.com/images/2021/01/22/1.rusIslBridge.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.zolRogBridge.jpg</item>
         <item>https://rataku.com/images/2021/01/22/2.sportEnbankment.jpg</item>
         <item>https://rataku.com/images/2021/01/22/3.cesarEmbankment.jpg</item>
         <item>https://rataku.com/images/2021/01/22/4.funicular.jpg</item>
-        <item>https://rataku.com/images/2021/01/22/5.zolRBay.jpg</item>
         <item>https://rataku.com/images/2021/01/22/6.eagleHill.jpg</item>
         <item>https://rataku.com/images/2021/01/22/7.PalladaNadejda.jpg</item>
         <item>https://rataku.com/images/2021/01/22/8.redPennant.jpg</item>

@@ -10,11 +10,19 @@ public class Food implements Category {
     private VldObject vldObject;
     private int[] descriptionTxtArr;
     private String[][] imgArray;
+    private String[] addressArray;
+    private String[] coordinatesArray;
+    private String[] mapPointCaptionArray;
+    private String[] urlInfoArray;
 
     public Food(Context appContext) {
         this.context = appContext;
         descriptionTxtArr = getDescriptionTxtArr();
         imgArray = getContentPics();
+        coordinatesArray = getCoordinatesArray();
+        addressArray = getAddressArray();
+        mapPointCaptionArray = getCaptionArray();
+        urlInfoArray = getUrlInfoArray();
     }
 
     @Override
@@ -27,6 +35,24 @@ public class Food implements Category {
     public String[] getCaptionArray() {
         String[] captionsArray = context.getResources().getStringArray(R.array.array_food);
         return captionsArray;
+    }
+
+    @Override
+    public String[] getCoordinatesArray() {
+        String[] coordArr = context.getResources().getStringArray(R.array.lat_lng_food);
+        return coordArr;
+    }
+
+    @Override
+    public String[] getAddressArray() {
+        String[] addrArr = context.getResources().getStringArray(R.array.address_food);
+        return addrArr;
+    }
+
+    @Override
+    public String[] getUrlInfoArray() {
+        String[] urlInfo = context.getResources().getStringArray(R.array.info_food);
+        return urlInfo;
     }
 
     private int[] getDescriptionTxtArr() {
@@ -60,7 +86,7 @@ public class Food implements Category {
 
     @Override
     public VldObject getVldObject(int position) {
-        vldObject = new VldObject(descriptionTxtArr[position], imgArray[position]);
+        vldObject = new VldObject(coordinatesArray[position], mapPointCaptionArray[position], addressArray[position], descriptionTxtArr[position], imgArray[position], urlInfoArray[position]);
         return vldObject;
     }
 

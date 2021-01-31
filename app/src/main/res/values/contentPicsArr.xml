@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <string-array name="bridges_content">
+    <string-array name="rus_bridge_content">
         <item>https://rataku.com/images/2021/01/22/1.rusIslBridge.jpg</item>
-        <item>https://rataku.com/images/2021/01/22/1.ZolRogBrd.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/1.-rusIslBr2.jpg</item>
+        <item>https://rataku.com/images/2021/01/31/1.ru_isl_brdg.jpg</item>
+    </string-array>
+    <string-array name="gold_bridge">
         <item>https://rataku.com/images/2021/01/22/1.zolRogBridge.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.zolRBay.jpg</item>
+        <item>https://rataku.com/images/2021/01/22/5.zolRogBay.jpg</item>
     </string-array>
     <string-array name="sportEmb_content">
         <item>https://rataku.com/images/2021/01/22/2.sportEnbankment.jpg</item>
@@ -21,11 +26,7 @@
         <item>https://rataku.com/images/2021/01/22/4.funic.jpg</item>
         <item>https://rataku.com/images/2021/01/22/4.funicul.jpg</item>
     </string-array>
-    <string-array name="zolRogBay_content">
-        <item>https://rataku.com/images/2021/01/22/5.zolRBay.jpg</item>
-        <item>https://rataku.com/images/2021/01/22/5.zolRogBay.jpg</item>
-        <item>https://rataku.com/images/2021/01/22/5.zolRogBay1.jpg</item>
-    </string-array>
+
     <string-array name="eagleHill_content">
         <item>https://rataku.com/images/2021/01/22/6.eagleHill.jpg</item>
         <item>https://rataku.com/images/2021/01/22/6.EagHill.jpg</item>

@@ -10,11 +10,19 @@ public class Swimming implements Category {
     private VldObject vldObject;
     private int[] descriptionTxtArr;
     private String[][] imgArray;
+    private String[] addressArray;
+    private String[] coordinatesArray;
+    private String[] mapPointCaptionArray;
+    private String[] urlInfoArray;
 
     public Swimming(Context appContext) {
         this.context = appContext;
         descriptionTxtArr = getDescriptionTxtArr();
         imgArray = getContentPics();
+        coordinatesArray = getCoordinatesArray();
+        addressArray = getAddressArray();
+        mapPointCaptionArray = getCaptionArray();
+        urlInfoArray = getUrlInfoArray();
     }
 
     public int[] getDescriptionTxtArr() {
@@ -42,6 +50,24 @@ public class Swimming implements Category {
         return captionsArray;
     }
 
+    @Override
+    public String[] getCoordinatesArray() {
+        String[] coordArr = context.getResources().getStringArray(R.array.lat_lng_swimming);
+        return coordArr;
+    }
+
+    @Override
+    public String[] getAddressArray() {
+        String[] addrArr = context.getResources().getStringArray(R.array.address_swimming);
+        return addrArr;
+    }
+
+    @Override
+    public String[] getUrlInfoArray() {
+        String[] urlInfo = context.getResources().getStringArray(R.array.info_swimming);
+        return urlInfo;
+    }
+
     public String[][] getContentPics() {
         String[] arr1 = context.getResources().getStringArray(R.array.shamora_content);
         String[] arr2 = context.getResources().getStringArray(R.array.steklyan_content);
@@ -58,7 +84,7 @@ public class Swimming implements Category {
 
     @Override
     public VldObject getVldObject(int position) {
-        vldObject = new VldObject(descriptionTxtArr[position], imgArray[position]);
+        vldObject = new VldObject(coordinatesArray[position], mapPointCaptionArray[position], addressArray[position], descriptionTxtArr[position], imgArray[position], urlInfoArray[position]);
         return vldObject;
     }
 }

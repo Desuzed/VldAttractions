@@ -2,11 +2,11 @@
 
 <resources>
     <string-array name="array_places">
-        <item>Вантовые мосты</item>
+        <item>Русский мост</item>
+        <item>Золотой мост</item>
         <item>Спортивная набережная</item>
         <item>Набережная цесаревича</item>
         <item>Фуникулёр</item>
-        <item>Бухта Золотой Рог</item>
         <item>Сопка "Орлиное гнездо"</item>
         <item>Фрегаты "Надежда" и "Паллада"</item>
         <item>Корабль-памятник "Красный Вымпел"</item>

@@ -1,28 +1,28 @@
 package com.example.vldattractions.factory;
 
 public class VldObject {
-    private double latitude;
-    private double longitude;
-    private String mapPointTitle;
+    private String coordinates;
+    private String mapPointCaption;
     private String address;
+    private String urlInfo;
     private int descriptionTextRes;
-    private String [] contentPics;
+    private String[] contentPics;
 
-    public VldObject(int descriptionTextRes, String[] contentPics) {
+    public VldObject(String coordinates, String mapPointTitle, String address, int descriptionTextRes, String[] contentPics, String urlInfo) {
+        this.coordinates = coordinates;
+        this.mapPointCaption = mapPointTitle;
+        this.address = address;
         this.descriptionTextRes = descriptionTextRes;
         this.contentPics = contentPics;
+        this.urlInfo = urlInfo;
     }
 
-    public double getLatitude() {
-        return latitude;
+    public String getCoordinates() {
+        return coordinates;
     }
 
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public String getMapPointTitle() {
-        return mapPointTitle;
+    public String getMapPointCaption() {
+        return mapPointCaption;
     }
 
     public String getAddress() {
@@ -35,6 +35,10 @@ public class VldObject {
 
     public String[] getContentPics() {
         return contentPics;
+    }
+
+    public String getUrlInfo() {
+        return urlInfo;
     }
 
 

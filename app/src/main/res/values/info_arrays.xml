@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="info_places">
+        <item>https://wikiway.com/russia/vladivostok/russkiy-most/</item>
+        <item>http://shamora24.ru/poleznaia-informacia/dostoprimechatelnosti/zolotoj-most-vladivostoka</item>
+        <item>https://2vladivostok.ru/?p=sportivnaya-naberezhnaya</item>
+        <item>https://2vladivostok.ru/?p=naberezhnaya-cesarevicha</item>
+        <item>https://www.tourister.ru/world/europe/russia/city/vladivostok/cableways/28536</item>
+        <item>https://www.tourister.ru/world/europe/russia/city/vladivostok/viewpoints/28532</item>
+        <item>https://dv.land/spec/morskie-aristokraty</item>
+        <item>http://shamora.info/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9-%D0%B2%D1%8B%D0%BC%D0%BF%D0%B5%D0%BB/</item>
+        <item>https://tonkosti.ru/%D0%9B%D1%8E%D1%82%D0%B5%D1%80%D0%B0%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%A1%D0%B2._%D0%9F%D0%B0%D0%B2%D0%BB%D0%B0_%D0%B2%D0%BE_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D0%BA%D0%B5</item>
+        <item>https://www.vladseatour.ru/top-100/show/arka-cesarevicha/</item>
+        <item>http://na7dney.ru/tokarevskij-mayak-na-myse-egersheld-vo-vladivostoke/#:~:text=%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%86%D0%B5%D0%BB%D1%8C%D1%8E%20%D0%B2%D0%BE%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%A2%D0%BE%D0%BA%D0%B0%D1%80%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B0%D1%8F%D0%BA%D0%B0,%D0%BF%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D1%85%20%D0%B2%20%D0%BF%D0%BE%D1%80%D1%82%20%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D0%BA%20%D1%81%D1%83%D0%B4%D0%BE%D0%BC.</item>
+    </string-array>
+
+    <string-array name="info_food">
+        <item>https://zumavl.ru/about/?reserve=y</item>
+        <item>https://supravl.ru/about/</item>
+        <item>https://phali-hinkali.ru/restoran/svetlanovskaya</item>
+        <item>https://www.the-village.ru/food/new-place/330171-crabeteria?source=post_page---------------------------</item>
+        <item>https://vysota207.ru/</item>
+        <item>https://www.instagram.com/phovietvl/</item>
+        <item>https://momchifan.ru/contacts</item>
+        <item>http://brugge-pub.ru/about</item>
+        <item>http://alaskabar.ru/</item>
+        <item>https://www.instagram.com/holyhop_vl/?hl=ru</item>
+    </string-array>
+
+    <string-array name="info_hotels">
+        <item>https://www.booking.com/hotel/ru/marine-wave.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/azimut-vladivostok.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/lido-central.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/holiday-vladivostok.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/zhiemchuzhina.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/otel-kaminn.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/apart-arbat-vladivostok.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/karmen.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/zodiak.ru.html</item>
+        <item>https://www.booking.com/hotel/ru/teplo-vladivostok.ru.html</item>
+    </string-array>
+
+    <string-array name="info_swimming">
+        <item>https://vladivostok.travel/todo/shamora/</item>
+        <item>https://travelask.ru/russia/vladivostok/buhta-steklyannaya</item>
+        <item>https://vladivostok.travel/todo/the-beaches-of-vladivostok/</item>
+        <item>https://xn--f1afgckh7i.xn--p1ai/rossiya/plyazhi-vladivostoka</item>
+        <item>https://www.tourister.ru/world/europe/russia/city/vladivostok/beachs/38387</item>
+        <item>https://vladivostok.travel/todo/the-beaches-of-vladivostok/</item>
+        <item>http://shamora24.ru/poleznaia-informacia/kak-dobratsya/kak-dobratsya-na-more-plyazhi-vladivostoka</item>
+        <item>https://primamedia.ru/news/755658/?from=37</item>
+        <item>https://www.tourister.ru/world/europe/russia/city/vladivostok/beachs/38382</item>
+    </string-array>
+
+    <string-array name="info_rus_island">
+        <item>https://russianisland.ru/%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%BC%D1%8B%D1%81-%D1%82%D0%BE%D0%B1%D0%B8%D0%B7%D0%B8%D0%BD%D0%B0.html</item>
+        <item>https://russianisland.ru/%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%BC%D1%8B%D1%81-%D0%B2%D1%8F%D1%82%D0%BB%D0%B8%D0%BD%D0%B0.html</item>
+        <item>https://www.tourister.ru/world/europe/russia/city/ostrov-russkii/beachs/32886</item>
+        <item>https://russianisland.ru/%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%B4%D0%B2%D1%84%D1%83.html</item>
+        <item>https://www.drive2.com/b/503509806141669760/?page=7</item>
+        <item>https://russianisland.ru/%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%BB%D1%8C%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F-%D0%B1%D0%B0%D1%82%D0%B0%D1%80%D0%B5%D1%8F.html#:~:text=%D0%9F%D0%B5%D1%80%D0%B2%D0%BE%D0%B5%20%D1%87%D1%82%D0%BE%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D1%83%D0%B2%D0%B8%D0%B4%D0%B5%D1%82%D1%8C%20%D0%BD%D0%B0,%D0%B8%20%D0%BF%D0%BE%D0%BB%D0%BD%D0%BE%D1%81%D1%82%D1%8C%D1%8E%20%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%D1%87%D0%B5%D0%BD%D0%BE%20%D0%B2%201902.</item>
+        <item>http://shamora24.ru/poleznaia-informacia/dostoprimechatelnosti/primorskij-okeanarium</item>
+        <item>https://russianisland.ru/%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2-%D1%88%D0%BA%D0%BE%D1%82%D0%B0.html</item>
+
+    </string-array>
+
+
+</resources>

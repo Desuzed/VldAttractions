@@ -10,11 +10,19 @@ public class Hotels implements Category {
     private VldObject vldObject;
     private int[] descriptionTxtArr;
     private String[][] imgArray;
+    private String[] addressArray;
+    private String[] coordinatesArray;
+    private String[] mapPointCaptionArray;
+    private String[] urlInfoArray;
 
     public Hotels(Context appContext) {
         this.context = appContext;
         descriptionTxtArr = getDescriptionTxtArr();
         imgArray = getContentPics();
+        coordinatesArray = getCoordinatesArray();
+        addressArray = getAddressArray();
+        mapPointCaptionArray = getCaptionArray();
+        urlInfoArray = getUrlInfoArray();
     }
 
     private int[] getDescriptionTxtArr() {
@@ -44,9 +52,21 @@ public class Hotels implements Category {
     }
 
     @Override
-    public VldObject getVldObject(int position) {
-        vldObject = new VldObject(descriptionTxtArr[position], imgArray[position]);
-        return vldObject;
+    public String[] getCoordinatesArray() {
+        String[] coordArr = context.getResources().getStringArray(R.array.lat_lng_hotels);
+        return coordArr;
+    }
+
+    @Override
+    public String[] getAddressArray() {
+        String[] addrArr = context.getResources().getStringArray(R.array.address_hotels);
+        return addrArr;
+    }
+
+    @Override
+    public String[] getUrlInfoArray() {
+        String[] urlInfo = context.getResources().getStringArray(R.array.info_hotels);
+        return urlInfo;
     }
 
     public String[][] getContentPics() {
@@ -63,4 +83,11 @@ public class Hotels implements Category {
         imgArray = new String[][]{arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9, arr10};
         return imgArray;
     }
+
+    @Override
+    public VldObject getVldObject(int position) {
+        vldObject = new VldObject(coordinatesArray[position], mapPointCaptionArray[position], addressArray[position], descriptionTxtArr[position], imgArray[position], urlInfoArray[position]);
+        return vldObject;
+    }
+
 }

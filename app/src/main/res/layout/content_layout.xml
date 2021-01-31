@@ -18,7 +18,7 @@
         tools:ignore="MissingConstraints"></Toolbar>
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/scroll_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,11 +71,12 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textContentView"
+                android:id="@+id/tvContentDescribtion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
+                android:layout_marginRight="4dp"
                 android:layout_marginBottom="10dp"
                 android:text="TextView"
                 android:textIsSelectable="true"
@@ -84,10 +85,38 @@
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="300dp"
                 android:layout_margin="8dp">
 
             </androidx.fragment.app.FragmentContainerView>
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:text="Адрес объекта"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:text="Информация" />
+
+            <TextView
+                android:id="@+id/tvLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:autoLink="web"
+                android:clickable="false"
+                android:text="Ссылка" />
 
         </LinearLayout>
     </ScrollView>
