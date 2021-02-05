@@ -43,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListContentActivity"
+            android:name=".VldContentActivity"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
         <activity

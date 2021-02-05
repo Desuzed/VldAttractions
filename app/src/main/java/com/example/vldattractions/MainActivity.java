@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Switch;
 
+import com.example.vldattractions.factory.VldObject;
 import com.example.vldattractions.utils.RecViewAdapter;
 import com.example.vldattractions.factory.CategoriesFactory;
 import com.example.vldattractions.factory.Category;
@@ -27,8 +28,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    public static int index = 0;
     private static final String TAG = "MainActivity";
     private NavigationView navigationView;
     private DrawerLayout drawer;
@@ -37,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RecViewAdapter recViewAdapter;
     private CategoriesFactory factory = new CategoriesFactory(this);
     private Category category;
-    private Switch themeSwitch;
+   // private Switch themeSwitch;
+    private ArrayList <VldObject> vldObjectList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,16 +91,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
-
     private void fillArray(int title, int index) {
-        toolbar.setTitle(title);
-        this.index = index;
         category = factory.getCategory(index);
+        vldObjectList = new ArrayList<>();
+        for (int i = 0; i < category.getCaptionArray().length; i++) {//TODO Сделать так, чтобы списки не создавались каждый раз заново
+            vldObjectList.add(category.getVldObject(i));
+        }
+        toolbar.setTitle(title);
         recViewAdapter.clearItems();
-        recViewAdapter.setItems(category);
-        recViewAdapter.notifyDataSetChanged();
-
+        recViewAdapter.setItems(vldObjectList);
     }
 
     private void init() {
@@ -107,13 +109,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setLayoutManager(gridLayoutManager);
         recViewAdapter = new RecViewAdapter(getApplicationContext());
         recyclerView.setAdapter(recViewAdapter);
-        category = factory.getCategory(Places.INDEX);
-        recViewAdapter.setItems(category);
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.menu_places);
         setSupportActionBar(toolbar);
+        fillArray(R.string.menu_places, Places.INDEX);
         drawer = findViewById(R.id.drawer_layout);
-        themeSwitch = (Switch) findViewById(R.id.switchDarkNight);
+      //  themeSwitch = (Switch) findViewById(R.id.switchDarkNight);
 //        if  (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
 //            themeSwitch.setChecked(true);
 //        }
@@ -142,15 +143,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        });
     }
 
-    public void onSwitchClick (View view){
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-         //   themeSwitch.setChecked(true);
-        }
-
-    }
+//    public void onSwitchClick (View view){
+//        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//        } else {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//         //   themeSwitch.setChecked(true);
+//        }
+//
+//    }
 
     private void launchActivityAbout(){
         Intent intent = new Intent(MainActivity.this, ActivityAbout.class);
@@ -160,18 +161,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onStart() {
         super.onStart();
-
     }
 
     @Override
     public void onBackPressed() {
-      //  super.onBackPressed();
         moveTaskToBack(true);
-//        Intent startMain = new Intent(Intent.ACTION_MAIN);
-//        startMain.addCategory(Intent.CATEGORY_HOME);
-//        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(startMain);
-       // finish();
     }
 }
 

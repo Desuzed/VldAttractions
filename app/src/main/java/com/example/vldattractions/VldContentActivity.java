@@ -30,17 +30,12 @@ import com.example.vldattractions.factory.CategoriesFactory;
 import com.example.vldattractions.factory.Category;
 import com.example.vldattractions.factory.VldObject;
 
-public class ListContentActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory {
+public class VldContentActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory {
     private TextView tvDescription, tvAddress, tvInfo, tvLink;
     private ImageSwitcher imageSwitcher;
     private Toolbar toolbar;
     private Typeface typeface;
-    private Category category;
-    private CategoriesFactory factory = new CategoriesFactory(this);
     private VldObject vldObject;
-    private int categoryIndex = 0;
-    private int position = 0;
-    private ImageButton backImgBtn, fwdImgBtn;
     private static final String TAG = "ListContentActivity";
     private String[] picsArray;
     private int length;
@@ -56,7 +51,7 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
     }
 
     private void createFragment (){
-        mapsFragment = new MapsFragment(vldObject.getCoordinates(), vldObject.getMapPointCaption());
+        mapsFragment = new MapsFragment(vldObject.getCoordinates(), vldObject.getCaption());
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, mapsFragment, null)
                 .commit();
@@ -64,16 +59,11 @@ public class ListContentActivity extends AppCompatActivity implements ViewSwitch
 
     private void receiveIntent() {
         Intent i = getIntent();
-        String caption = "";
         if (i != null) {
-            categoryIndex = i.getIntExtra("categoryIndex", 0);
-            position = i.getIntExtra("position", 0);
-            caption = i.getStringExtra("caption");
+            vldObject = (VldObject) i.getParcelableExtra("vldObject");
         }
-        category = factory.getCategory(categoryIndex);
-        vldObject = category.getVldObject(position);
         picsArray = vldObject.getContentPics();
-        toolbar.setTitle(caption);
+        toolbar.setTitle(vldObject.getCaption());
         setActionBar(toolbar);
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         //TODO Опять не работает и ничего не помогает

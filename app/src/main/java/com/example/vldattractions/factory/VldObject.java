@@ -1,28 +1,55 @@
 package com.example.vldattractions.factory;
 
-public class VldObject {
-    private String coordinates;
-    private String mapPointCaption;
-    private String address;
-    private String urlInfo;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class VldObject implements Parcelable {
+    private String caption;
+    private String previewImage;
     private int descriptionTextRes;
     private String[] contentPics;
+    private String coordinates;
+    private String address;
+    private String urlInfo;
 
-    public VldObject(String coordinates, String mapPointTitle, String address, int descriptionTextRes, String[] contentPics, String urlInfo) {
-        this.coordinates = coordinates;
-        this.mapPointCaption = mapPointTitle;
-        this.address = address;
+    public VldObject(String caption, int descriptionTextRes, String[] contentPics, String coordinates, String address, String urlInfo) {
+        this.caption = caption;
         this.descriptionTextRes = descriptionTextRes;
         this.contentPics = contentPics;
+        this.coordinates = coordinates;
+        this.address = address;
         this.urlInfo = urlInfo;
+        this.previewImage = contentPics[0];
     }
+
+    protected VldObject(Parcel in) {
+        caption = in.readString();
+        previewImage = in.readString();
+        descriptionTextRes = in.readInt();
+        contentPics = in.createStringArray();
+        coordinates = in.readString();
+        address = in.readString();
+        urlInfo = in.readString();
+    }
+
+    public static final Creator<VldObject> CREATOR = new Creator<VldObject>() {
+        @Override
+        public VldObject createFromParcel(Parcel in) {
+            return new VldObject(in);
+        }
+
+        @Override
+        public VldObject[] newArray(int size) {
+            return new VldObject[size];
+        }
+    };
 
     public String getCoordinates() {
         return coordinates;
     }
 
-    public String getMapPointCaption() {
-        return mapPointCaption;
+    public String getCaption() {
+        return caption;
     }
 
     public String getAddress() {
@@ -41,5 +68,24 @@ public class VldObject {
         return urlInfo;
     }
 
+    public String getPreviewImage() {
+        return previewImage;
+    }
 
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(caption);
+        parcel.writeString(previewImage);
+        parcel.writeInt(descriptionTextRes);
+        parcel.writeStringArray(contentPics);
+        parcel.writeString(coordinates);
+        parcel.writeString(address);
+        parcel.writeString(urlInfo);
+    }
 }

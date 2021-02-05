@@ -3,7 +3,6 @@ package com.example.vldattractions.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,38 +13,31 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.vldattractions.ListContentActivity;
-import com.example.vldattractions.MainActivity;
+import com.example.vldattractions.VldContentActivity;
 import com.example.vldattractions.R;
-import com.example.vldattractions.factory.Category;
+import com.example.vldattractions.factory.VldObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
-    private List<String> captArray = new ArrayList<>();
     private static final String TAG = "RecViewAdapter";
     private Context contextMainActivity;
-    private String[] picsArray;
+    private ArrayList <VldObject> vldObjectList = new ArrayList<>();
     private Typeface typeface;
-    private Category category;
-
 
     public RecViewAdapter(Context contextMainActivity) {
         this.contextMainActivity = contextMainActivity;
     }
 
-    public void setItems(Category instance) {
-        category = instance;
-        captArray = new ArrayList<>(Arrays.asList(category.getCaptionArray()));
-        picsArray = category.getPreviewImgArray();
+    public void setItems(ArrayList <VldObject> list) {
+        vldObjectList = list;
         notifyDataSetChanged();
     }
 
     public void clearItems() {
-        captArray.clear();
-        picsArray = new String[1];
+        if ( !vldObjectList.isEmpty()){
+            vldObjectList.clear();
+        }
         notifyDataSetChanged();
     }
 
@@ -59,19 +51,15 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       // Log.d(TAG, "onBindViewHolder: \n holder.getAdapterPosition() = " + holder.getAdapterPosition() + "; \n holder.getLayoutPosition() = " + holder.getLayoutPosition() + "; \n holder.getOldPosition() "+ holder.getOldPosition());
-        holder.bind(captArray.get(position), position);
+        // Log.d(TAG, "onBindViewHolder: \n holder.getAdapterPosition() = " + holder.getAdapterPosition() + "; \n holder.getLayoutPosition() = " + holder.getLayoutPosition() + "; \n holder.getOldPosition() "+ holder.getOldPosition());
+        VldObject vldObject = vldObjectList.get(position);
+        holder.bind(vldObject);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(TAG, "onClick: on bind " + position);
-                Intent intent = new Intent(contextMainActivity, ListContentActivity.class);
-                //TODO Сделать через бандл, чтобы объект создавался один раз
-//                Bundle bundle = new Bundle();
-               // intent.putExtra()
-                intent.putExtra("categoryIndex", MainActivity.index);
-                intent.putExtra("position", position);
-                intent.putExtra("caption", captArray.get(position));
+               // Log.i(TAG, "onClick: on bind " + position);
+                Intent intent = new Intent(contextMainActivity, VldContentActivity.class);
+                intent.putExtra("vldObject", vldObject);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 contextMainActivity.startActivity(intent);
             }
@@ -80,7 +68,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return captArray.size();
+        return vldObjectList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -95,11 +83,11 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
             tvItemRV.setTypeface(typeface);
         }
 
-        public void bind(String caption, int position) {
-            tvItemRV.setText(caption);
+        public void bind(VldObject object) {
+            tvItemRV.setText(object.getCaption());
             Glide
                     .with(contextMainActivity)
-                    .load(picsArray[position])
+                    .load(object.getPreviewImage())
                     .into(imgItemRV);
         }
     }

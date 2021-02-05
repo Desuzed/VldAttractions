@@ -1,6 +1,7 @@
 package com.example.vldattractions.factory;
 
 import android.content.Context;
+import android.util.SparseBooleanArray;
 
 import com.example.vldattractions.R;
 
@@ -12,8 +13,9 @@ public class Swimming implements Category {
     private String[][] imgArray;
     private String[] addressArray;
     private String[] coordinatesArray;
-    private String[] mapPointCaptionArray;
+    private String[] captionArray;
     private String[] urlInfoArray;
+    private SparseBooleanArray selections = new SparseBooleanArray();
 
     public Swimming(Context appContext) {
         this.context = appContext;
@@ -21,8 +23,9 @@ public class Swimming implements Category {
         imgArray = getContentPics();
         coordinatesArray = getCoordinatesArray();
         addressArray = getAddressArray();
-        mapPointCaptionArray = getCaptionArray();
+        captionArray = getCaptionArray();
         urlInfoArray = getUrlInfoArray();
+
     }
 
     public int[] getDescriptionTxtArr() {
@@ -38,11 +41,6 @@ public class Swimming implements Category {
         return textArr;
     }
 
-    @Override
-    public String[] getPreviewImgArray() {
-        String[] imgArray = context.getResources().getStringArray(R.array.swimming_pics_url);
-        return imgArray;
-    }
 
     @Override
     public String[] getCaptionArray() {
@@ -84,7 +82,13 @@ public class Swimming implements Category {
 
     @Override
     public VldObject getVldObject(int position) {
-        vldObject = new VldObject(coordinatesArray[position], mapPointCaptionArray[position], addressArray[position], descriptionTxtArr[position], imgArray[position], urlInfoArray[position]);
+        vldObject = new VldObject(captionArray[position],
+                descriptionTxtArr[position],
+                imgArray[position],
+                coordinatesArray[position],
+                addressArray[position],
+                urlInfoArray[position]);
+
         return vldObject;
     }
 }

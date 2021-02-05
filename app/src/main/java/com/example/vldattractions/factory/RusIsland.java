@@ -12,7 +12,7 @@ public class RusIsland implements Category {
     private String[][] imgArray;
     private String[] addressArray;
     private String[] coordinatesArray;
-    private String[] mapPointCaptionArray;
+    private String[] captionArray;
     private String[] urlInfoArray;
 
     public RusIsland(Context appContext) {
@@ -21,7 +21,7 @@ public class RusIsland implements Category {
         imgArray = getContentPics();
         coordinatesArray = getCoordinatesArray();
         addressArray = getAddressArray();
-        mapPointCaptionArray = getCaptionArray();
+        captionArray = getCaptionArray();
         urlInfoArray = getUrlInfoArray();
     }
 
@@ -35,12 +35,6 @@ public class RusIsland implements Category {
                 R.string.oceanarium,
                 R.string.shkot_island};
         return textArr;
-    }
-
-    @Override
-    public String[] getPreviewImgArray() {
-        String[] imgArray = context.getResources().getStringArray(R.array.rus_island_pics_url);
-        return imgArray;
     }
 
     @Override
@@ -83,7 +77,12 @@ public class RusIsland implements Category {
 
     @Override
     public VldObject getVldObject(int position) {
-        vldObject = new VldObject(coordinatesArray[position], mapPointCaptionArray[position], addressArray[position], descriptionTxtArr[position], imgArray[position], urlInfoArray[position]);
+        vldObject = new VldObject(captionArray[position],
+                descriptionTxtArr[position],
+                imgArray[position],
+                coordinatesArray[position],
+                addressArray[position],
+                urlInfoArray[position]);
         return vldObject;
     }
 }
