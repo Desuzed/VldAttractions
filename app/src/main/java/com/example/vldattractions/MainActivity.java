@@ -1,13 +1,13 @@
 package com.example.vldattractions;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
-import android.view.View;
-import android.widget.Switch;
 
 import com.example.vldattractions.factory.VldObject;
+import com.example.vldattractions.utils.Bookmarks;
 import com.example.vldattractions.utils.RecViewAdapter;
 import com.example.vldattractions.factory.CategoriesFactory;
 import com.example.vldattractions.factory.Category;
@@ -17,10 +17,11 @@ import com.example.vldattractions.factory.Places;
 import com.example.vldattractions.factory.RusIsland;
 import com.example.vldattractions.factory.Swimming;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +29,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
@@ -39,8 +42,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RecViewAdapter recViewAdapter;
     private CategoriesFactory factory = new CategoriesFactory(this);
     private Category category;
-   // private Switch themeSwitch;
-    private ArrayList <VldObject> vldObjectList;
+    // private Switch themeSwitch;
+    private ArrayList<VldObject> vldObjectList = new ArrayList<>();
+    private Bookmarks bookmarks = Bookmarks.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,22 +71,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_places:
-                fillArray(R.string.menu_places, Places.INDEX);
+                createObjects(R.string.menu_places, Places.INDEX);
                 break;
             case R.id.nav_food:
-                fillArray(R.string.menu_catering,Food.INDEX);
+                createObjects(R.string.menu_catering, Food.INDEX);
                 break;
             case R.id.nav_hotels:
-                fillArray(R.string.menu_hotels, Hotels.INDEX);
+                createObjects(R.string.menu_hotels, Hotels.INDEX);
                 break;
             case R.id.nav_swimming:
-                fillArray(R.string.menu_swimming, Swimming.INDEX);
+                createObjects(R.string.menu_swimming, Swimming.INDEX);
                 break;
             case R.id.nav_rus_island:
-                fillArray(R.string.menu_rus_island, RusIsland.INDEX);
+                createObjects(R.string.menu_rus_island, RusIsland.INDEX);
                 break;
             case R.id.nav_about:
                 launchActivityAbout();
+                break;
+            case R.id.nav_bookmarks:
+                launchBookmarks();
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + id);
@@ -91,14 +98,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private void fillArray(int title, int index) {
+    private void createObjects(int title, int index) {
         category = factory.getCategory(index);
         vldObjectList = new ArrayList<>();
         for (int i = 0; i < category.getCaptionArray().length; i++) {//TODO Сделать так, чтобы списки не создавались каждый раз заново
-            vldObjectList.add(category.getVldObject(i));
+            VldObject v = category.getVldObject(i);
+            if (bookmarks.getBookmarksSet().contains(v)){
+                v.setBookmarked(true);
+            }
+            vldObjectList.add(v);
         }
         toolbar.setTitle(title);
-        recViewAdapter.clearItems();
+        //recViewAdapter.clearItems();
         recViewAdapter.setItems(vldObjectList);
     }
 
@@ -107,14 +118,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView = findViewById(R.id.recView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
-        recViewAdapter = new RecViewAdapter(getApplicationContext());
+        recViewAdapter = RecViewAdapter.getInstance(getApplicationContext());
         recyclerView.setAdapter(recViewAdapter);
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.menu_places);
         setSupportActionBar(toolbar);
-        fillArray(R.string.menu_places, Places.INDEX);
+        bookmarks.setBookmarksSet(readBookmarksSet());
+        createObjects(R.string.menu_places, Places.INDEX);
         drawer = findViewById(R.id.drawer_layout);
-      //  themeSwitch = (Switch) findViewById(R.id.switchDarkNight);
+        //  themeSwitch = (Switch) findViewById(R.id.switchDarkNight);
 //        if  (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
 //            themeSwitch.setChecked(true);
 //        }
@@ -153,9 +165,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //
 //    }
 
-    private void launchActivityAbout(){
+    private void launchActivityAbout() {
         Intent intent = new Intent(MainActivity.this, ActivityAbout.class);
         startActivity(intent);
+    }
+
+    private TreeSet<VldObject> readBookmarksSet() {
+        SharedPreferences sp = getSharedPreferences("sharedPref", MODE_PRIVATE);
+        String json = sp.getString("bookmarks", "");
+        Gson gson = new Gson();
+        Type type = new TypeToken<TreeSet<VldObject>>() {
+        }.getType();
+        TreeSet<VldObject> set = gson.fromJson(json, type);
+        if (set == null) {
+            set = new TreeSet<VldObject>();
+        }
+        return set;
+    }
+
+    private void launchBookmarks() {
+        TreeSet<VldObject> set = bookmarks.getBookmarksSet();
+        toolbar.setTitle(R.string.menu_bookmarks);
+        recViewAdapter.clearItems();
+        recViewAdapter.setItems(new ArrayList(set));
     }
 
     @Override

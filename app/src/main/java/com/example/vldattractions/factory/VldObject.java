@@ -3,7 +3,7 @@ package com.example.vldattractions.factory;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class VldObject implements Parcelable {
+public class VldObject implements Parcelable, Comparable<VldObject> {
     private String caption;
     private String previewImage;
     private int descriptionTextRes;
@@ -11,6 +11,7 @@ public class VldObject implements Parcelable {
     private String coordinates;
     private String address;
     private String urlInfo;
+    private boolean isBookmarked = false;
 
     public VldObject(String caption, int descriptionTextRes, String[] contentPics, String coordinates, String address, String urlInfo) {
         this.caption = caption;
@@ -43,6 +44,14 @@ public class VldObject implements Parcelable {
             return new VldObject[size];
         }
     };
+
+    public boolean isBookmarked (){
+        return isBookmarked;
+    }
+
+    public void setBookmarked(boolean bookmarked){
+        this.isBookmarked = bookmarked;
+    }
 
     public String getCoordinates() {
         return coordinates;
@@ -87,5 +96,10 @@ public class VldObject implements Parcelable {
         parcel.writeString(coordinates);
         parcel.writeString(address);
         parcel.writeString(urlInfo);
+    }
+
+    @Override
+    public int compareTo(VldObject object) {
+        return this.getCaption().compareTo(object.getCaption());
     }
 }

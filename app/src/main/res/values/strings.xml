@@ -18,6 +18,7 @@
     <string name="menu_hills">Смотровые площадки и сопки</string>
     <string name="menu_shopping">Торговые центры</string>
     <string name="menu_about">О приложении</string>
+    <string name="menu_bookmarks">Закладки</string>
     <string name="button_start">Start</string>
     <string name="activity_about_newFeatures">Изменения:\n\t
     -Добавлены карты с метками\n\t
@@ -29,6 +30,7 @@
         В приложении осуществляется подргрузка картинок из интернет источников и кэшируется в памяти
         мобильного устройства, что в дальнейшем позволяет пользоваться приложением более комфортно.\n
     </string>
+    <string name="add_dlt_bookmark">Добавить/удалить закладку</string>
 
 
 </resources>
