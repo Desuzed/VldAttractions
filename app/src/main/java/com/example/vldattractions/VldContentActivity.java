@@ -1,8 +1,8 @@
 package com.example.vldattractions;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -32,11 +33,6 @@ import com.example.vldattractions.utils.Bookmarks;
 import com.example.vldattractions.utils.MapsFragment;
 import com.example.vldattractions.factory.VldObject;
 import com.example.vldattractions.utils.RecViewAdapter;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.TreeSet;
 
 public class VldContentActivity extends AppCompatActivity implements ViewSwitcher.ViewFactory {
     private TextView tvDescription, tvAddress, tvInfo, tvLink;
@@ -71,17 +67,18 @@ public class VldContentActivity extends AppCompatActivity implements ViewSwitche
     private void receiveIntent() {
         Intent i = getIntent();
         if (i != null) {
-            vldObject = (VldObject) i.getParcelableExtra("vldObject");
-            boolean b = i.getBooleanExtra("isBookmarked", false);
-            vldObject.setBookmarked(b);
+//            vldObject = (VldObject) i.getParcelableExtra("vldObject");
+//            boolean b = i.getBooleanExtra("isBookmarked", false);
+//            vldObject.setBookmarked(b);
             position = i.getIntExtra("position", 0);
         }
+        vldObject = adapter.getVldObjectList().get(position);
         picsArray = vldObject.getContentPics();
         toolbar.setTitle(vldObject.getCaption());
+        //toolbar.setTitleTextColor(Color.WHITE);
+        tvDescription.setText(vldObject.getDescriptionTextRes());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        int descriptionText = vldObject.getDescriptionTextRes();
-        tvDescription.setText(descriptionText);
         loadImgWithGlide();
         tvAddress.setText("Адрес объекта: " + vldObject.getAddress());
         tvInfo.setText("Дополнительную информацию можно посмотреть по ссылке:");
@@ -96,6 +93,7 @@ public class VldContentActivity extends AppCompatActivity implements ViewSwitche
         imageSwitcher = findViewById(R.id.imageSwitcher);
         adapter = RecViewAdapter.getInstance(getApplicationContext());
         toolbar = findViewById(R.id.toolbarContent);
+
         imageSwitcher.setFactory(this);
         typeface = Typeface.createFromAsset(this.getAssets(), "fonts/PTMono-Regular.ttf");
         tvDescription.setTypeface(typeface);
@@ -105,7 +103,6 @@ public class VldContentActivity extends AppCompatActivity implements ViewSwitche
         outAnimation.setDuration(500);
         imageSwitcher.setInAnimation(inAnimation);
         imageSwitcher.setOutAnimation(outAnimation);
-
     }
 
     private void setIndexPrev() {
@@ -162,7 +159,7 @@ public class VldContentActivity extends AppCompatActivity implements ViewSwitche
         MenuItem item = menu.findItem(R.id.set_bookmark);
         ImageView image = new ImageView(this);
         image.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        image.setPadding(8, 8, 8, 8);
+        image.setPadding(12, 12, 12, 12);
         image.setImageResource(R.drawable.bookmark_selector);
         if (vldObject.isBookmarked()) {
             image.setSelected(true);
@@ -172,57 +169,44 @@ public class VldContentActivity extends AppCompatActivity implements ViewSwitche
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setBookmarked(image);
+                addRemoveBookmark(image);
             }
         });
         item.setActionView(image);
         return true;
     }
 
-    private void setBookmarked(ImageView image) {
+    private void addRemoveBookmark(ImageView image) {
         if (vldObject.isBookmarked()) {
-            vldObject.setBookmarked(false);
-            adapter.getVldObjectList().get(position).setBookmarked(false);
-            bookmarks.removeBookmark(vldObject);
-            image.setSelected(false);
-            removeBookmark(vldObject);
+            setBookmarked(false, image);
+            bookmarks.removeBookmark(vldObject, getSharedPreferences("sharedPref", MODE_PRIVATE));
+            if (MainActivity.isBookmarkActivity){
+                adapter.removeObject(position);
+            }
             Toast.makeText(this, "Объект \"" + vldObject.getCaption() + "\" удален из закладок", Toast.LENGTH_SHORT).show();
         } else {
-            vldObject.setBookmarked(true);
-            adapter.getVldObjectList().get(position).setBookmarked(true);
+            setBookmarked(true, image);
             bookmarks.addBookmark(vldObject);
-            image.setSelected(true);
-            saveBookmarks();
+            bookmarks.saveBookmarksToSP(getSharedPreferences("sharedPref", MODE_PRIVATE));
+            if (MainActivity.isBookmarkActivity){
+                adapter.setObject(position, vldObject);
+            }
             Toast.makeText(this, "Объект \"" + vldObject.getCaption() + "\" добавлен в закладки", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void saveBookmarks() {
-        SharedPreferences sp = getSharedPreferences("sharedPref", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(bookmarks.getBookmarksSet());
-        editor.putString("bookmarks", json);
-        editor.apply();
+    private void setBookmarked (boolean b, ImageView image){
+        vldObject.setBookmarked(b);
+        adapter.getVldObjectList().get(position).setBookmarked(b);
+        image.setSelected(b);
     }
 
-    private void removeBookmark(VldObject o) {
-        TreeSet<VldObject> set = readBookmarksSet();
-        set.remove(o);
-        saveBookmarks();
-    }
-
-    private TreeSet<VldObject> readBookmarksSet() {
-        SharedPreferences sp = getSharedPreferences("sharedPref", MODE_PRIVATE);
-        String json = sp.getString("bookmarks", "");
-        Gson gson = new Gson();
-        Type type = new TypeToken<TreeSet<VldObject>>() {
-        }.getType();
-        TreeSet<VldObject> set = gson.fromJson(json, type);
-        if (set == null) {
-            set = new TreeSet<VldObject>();
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
         }
-        return set;
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

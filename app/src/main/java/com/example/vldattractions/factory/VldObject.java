@@ -2,8 +2,14 @@ package com.example.vldattractions.factory;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
-public class VldObject implements Parcelable, Comparable<VldObject> {
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class VldObject implements Comparable<VldObject> {
+    private static final String TAG = "VldObject";
     private String caption;
     private String previewImage;
     private int descriptionTextRes;
@@ -23,6 +29,7 @@ public class VldObject implements Parcelable, Comparable<VldObject> {
         this.previewImage = contentPics[0];
     }
 
+
     protected VldObject(Parcel in) {
         caption = in.readString();
         previewImage = in.readString();
@@ -33,17 +40,17 @@ public class VldObject implements Parcelable, Comparable<VldObject> {
         urlInfo = in.readString();
     }
 
-    public static final Creator<VldObject> CREATOR = new Creator<VldObject>() {
-        @Override
-        public VldObject createFromParcel(Parcel in) {
-            return new VldObject(in);
-        }
-
-        @Override
-        public VldObject[] newArray(int size) {
-            return new VldObject[size];
-        }
-    };
+//    public static final Creator<VldObject> CREATOR = new Creator<VldObject>() {
+//        @Override
+//        public VldObject createFromParcel(Parcel in) {
+//            return new VldObject(in);
+//        }
+//
+//        @Override
+//        public VldObject[] newArray(int size) {
+//            return new VldObject[size];
+//        }
+//    };
 
     public boolean isBookmarked (){
         return isBookmarked;
@@ -82,24 +89,27 @@ public class VldObject implements Parcelable, Comparable<VldObject> {
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(caption);
-        parcel.writeString(previewImage);
-        parcel.writeInt(descriptionTextRes);
-        parcel.writeStringArray(contentPics);
-        parcel.writeString(coordinates);
-        parcel.writeString(address);
-        parcel.writeString(urlInfo);
-    }
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void writeToParcel(Parcel parcel, int i) {
+//        parcel.writeString(caption);
+//        parcel.writeString(previewImage);
+//        parcel.writeInt(descriptionTextRes);
+//        parcel.writeStringArray(contentPics);
+//        parcel.writeString(coordinates);
+//        parcel.writeString(address);
+//        parcel.writeString(urlInfo);
+//    }
 
     @Override
     public int compareTo(VldObject object) {
+      //  int i = (int) (this.getDate().getTime() - object.getDate().getTime());
+//        int i = this.getCalendar().compareTo(object.getCalendar());
+//        Log.i(TAG, "compareTo: "+ this.getCalendar()+ ";\n " + object.getCalendar() + ", \n i=" + i);
         return this.getCaption().compareTo(object.getCaption());
     }
 }

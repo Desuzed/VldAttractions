@@ -3,8 +3,11 @@ package com.example.vldattractions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.vldattractions.factory.VldObject;
 import com.example.vldattractions.utils.Bookmarks;
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // private Switch themeSwitch;
     private ArrayList<VldObject> vldObjectList = new ArrayList<>();
     private Bookmarks bookmarks = Bookmarks.getInstance();
+    public static boolean isBookmarkActivity = false;
+    private TextView tvRecView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,11 +104,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void createObjects(int title, int index) {
+        isBookmarkActivity = false;
         category = factory.getCategory(index);
         vldObjectList = new ArrayList<>();
         for (int i = 0; i < category.getCaptionArray().length; i++) {//TODO Сделать так, чтобы списки не создавались каждый раз заново
             VldObject v = category.getVldObject(i);
-            if (bookmarks.getBookmarksSet().contains(v)){
+            if (bookmarks.getBookmarksSet().contains(v)) {
                 v.setBookmarked(true);
             }
             vldObjectList.add(v);
@@ -118,14 +124,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView = findViewById(R.id.recView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
+        tvRecView = findViewById(R.id.tvRecView);
         recViewAdapter = RecViewAdapter.getInstance(getApplicationContext());
+        recViewAdapter.setTvRecView(tvRecView);
         recyclerView.setAdapter(recViewAdapter);
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.menu_places);
         setSupportActionBar(toolbar);
-        bookmarks.setBookmarksSet(readBookmarksSet());
+        bookmarks.setBookmarksSet(bookmarks.getSharedPrefBookmarkSet(getSharedPreferences("sharedPref", MODE_PRIVATE)));
         createObjects(R.string.menu_places, Places.INDEX);
         drawer = findViewById(R.id.drawer_layout);
+
         //  themeSwitch = (Switch) findViewById(R.id.switchDarkNight);
 //        if  (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
 //            themeSwitch.setChecked(true);
@@ -170,21 +179,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
-    private TreeSet<VldObject> readBookmarksSet() {
-        SharedPreferences sp = getSharedPreferences("sharedPref", MODE_PRIVATE);
-        String json = sp.getString("bookmarks", "");
-        Gson gson = new Gson();
-        Type type = new TypeToken<TreeSet<VldObject>>() {
-        }.getType();
-        TreeSet<VldObject> set = gson.fromJson(json, type);
-        if (set == null) {
-            set = new TreeSet<VldObject>();
-        }
-        return set;
-    }
 
     private void launchBookmarks() {
+        isBookmarkActivity = true;
         TreeSet<VldObject> set = bookmarks.getBookmarksSet();
+        if (!bookmarks.hasBookmarks) {
+            recViewAdapter.setText(this.getResources().getString(R.string.bookmarks_empty));
+        } else {
+            recViewAdapter.setText("");
+        }
         toolbar.setTitle(R.string.menu_bookmarks);
         recViewAdapter.clearItems();
         recViewAdapter.setItems(new ArrayList(set));
@@ -195,9 +198,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onStart();
     }
 
+
+    boolean doubleBackToExitPressedOnce = false;
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
+        if (doubleBackToExitPressedOnce) {
+            moveTaskToBack(true);
+            return;
+        }
+        doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Нажмите еще раз для выхода", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 }
 

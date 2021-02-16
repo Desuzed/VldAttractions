@@ -10,25 +10,29 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.vldattractions.MainActivity;
 import com.example.vldattractions.VldContentActivity;
 import com.example.vldattractions.R;
 import com.example.vldattractions.factory.VldObject;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
     private static final String TAG = "RecViewAdapter";
     private Context contextMainActivity;
-    private ArrayList <VldObject> vldObjectList = new ArrayList<>();
+    private ArrayList<VldObject> vldObjectList = new ArrayList<>();
     private Typeface typeface;
-    private ImageButton imageButton;
     private static RecViewAdapter instance;
-    //private Bookmarks bookmarks;
+    private Bookmarks bookmarks;
+    private TextView tvRecView;
 
     public static synchronized RecViewAdapter getInstance(Context contextMainActivity) {
         if (instance == null) {
@@ -37,9 +41,9 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         return instance;
     }
 
-
     public RecViewAdapter(Context contextMainActivity) {
         this.contextMainActivity = contextMainActivity;
+        bookmarks = Bookmarks.getInstance();
     }
 
 //    public RecViewAdapter(Context contextMainActivity, Bookmarks bookmarks) {
@@ -47,16 +51,31 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 //        this.bookmarks = bookmarks;
 //    }
 
-    public void setItems(ArrayList <VldObject> list) {
+    public void setItems(ArrayList<VldObject> list) {
         vldObjectList = list;
         notifyDataSetChanged();
     }
 
     public void clearItems() {
-        if (!vldObjectList.isEmpty()){
+        if (!vldObjectList.isEmpty()) {
             vldObjectList.clear();
         }
         notifyDataSetChanged();
+    }
+
+    public void removeObject(int index) {
+        vldObjectList.remove(index);
+        if (vldObjectList.size()==0){
+            setText(contextMainActivity.getResources().getString(R.string.bookmarks_empty));
+        }else {
+            setText("");
+        }
+        notifyDataSetChanged();
+    }
+
+    public void setObject(int index, VldObject o) {
+        vldObjectList.add(index, o);
+        notifyItemInserted(index);
     }
 
     @NonNull
@@ -75,10 +94,10 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Log.i(TAG, "onClick: on bind " + position);
+                // Log.i(TAG, "onClick: on bind " + position);
                 Intent intent = new Intent(contextMainActivity, VldContentActivity.class); //TODO Разобраться почему интент не сериализует булевое значение
-                intent.putExtra("vldObject", vldObject);
-                intent.putExtra("isBookmarked", vldObject.isBookmarked());
+//                intent.putExtra("vldObject", vldObject);
+//                intent.putExtra("isBookmarked", vldObject.isBookmarked());
                 intent.putExtra("position", position);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 contextMainActivity.startActivity(intent);
@@ -99,7 +118,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
             super(itemView);
             imgItemRV = itemView.findViewById(R.id.imgItemRV);
             tvItemRV = itemView.findViewById(R.id.tvItemRV);
-           // imageButton = itemView.findViewById(R.id.bkmrk);
+            // imageButton = itemView.findViewById(R.id.bkmrk);
             typeface = Typeface.createFromAsset(contextMainActivity.getAssets(), "fonts/PTMono-Regular.ttf");
             tvItemRV.setTypeface(typeface);
         }
@@ -110,20 +129,20 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
                     .with(contextMainActivity)
                     .load(object.getPreviewImage())
                     .into(imgItemRV);
-
-//            imageButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Log.i(TAG, "onClick: " + object.getCaption());
-//                    bookmarks.addVldBookmark(object);
-//                }
-//            });
         }
     }
 
 
     public ArrayList<VldObject> getVldObjectList() {
         return vldObjectList;
+    }
+
+    public void setTvRecView(TextView tvRecView) {
+        this.tvRecView = tvRecView;
+    }
+
+    public void setText (String text){
+        tvRecView.setText(text);
     }
 
 
