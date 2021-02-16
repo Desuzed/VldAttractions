@@ -65,7 +65,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
     public void removeObject(int index) {
         vldObjectList.remove(index);
-        if (vldObjectList.size()==0){
+        if (vldObjectList.size()==0 && MainActivity.isBookmarkActivity){
             setText(contextMainActivity.getResources().getString(R.string.bookmarks_empty));
         }else {
             setText("");
