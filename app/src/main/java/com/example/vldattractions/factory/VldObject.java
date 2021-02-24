@@ -29,28 +29,13 @@ public class VldObject implements Comparable<VldObject> {
         this.previewImage = contentPics[0];
     }
 
-
-    protected VldObject(Parcel in) {
-        caption = in.readString();
-        previewImage = in.readString();
-        descriptionTextRes = in.readInt();
-        contentPics = in.createStringArray();
-        coordinates = in.readString();
-        address = in.readString();
-        urlInfo = in.readString();
+    @Override
+    public int compareTo(VldObject object) {
+        //  int i = (int) (this.getDate().getTime() - object.getDate().getTime());
+//        int i = this.getCalendar().compareTo(object.getCalendar());
+//        Log.i(TAG, "compareTo: "+ this.getCalendar()+ ";\n " + object.getCalendar() + ", \n i=" + i);
+        return this.getCaption().compareTo(object.getCaption());
     }
-
-//    public static final Creator<VldObject> CREATOR = new Creator<VldObject>() {
-//        @Override
-//        public VldObject createFromParcel(Parcel in) {
-//            return new VldObject(in);
-//        }
-//
-//        @Override
-//        public VldObject[] newArray(int size) {
-//            return new VldObject[size];
-//        }
-//    };
 
     public boolean isBookmarked (){
         return isBookmarked;
@@ -88,28 +73,4 @@ public class VldObject implements Comparable<VldObject> {
         return previewImage;
     }
 
-
-//    @Override
-//    public int describeContents() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public void writeToParcel(Parcel parcel, int i) {
-//        parcel.writeString(caption);
-//        parcel.writeString(previewImage);
-//        parcel.writeInt(descriptionTextRes);
-//        parcel.writeStringArray(contentPics);
-//        parcel.writeString(coordinates);
-//        parcel.writeString(address);
-//        parcel.writeString(urlInfo);
-//    }
-
-    @Override
-    public int compareTo(VldObject object) {
-      //  int i = (int) (this.getDate().getTime() - object.getDate().getTime());
-//        int i = this.getCalendar().compareTo(object.getCalendar());
-//        Log.i(TAG, "compareTo: "+ this.getCalendar()+ ";\n " + object.getCalendar() + ", \n i=" + i);
-        return this.getCaption().compareTo(object.getCaption());
-    }
 }

@@ -6,7 +6,6 @@
     <string name="nav_header_subtitle">Найди место себе по душе</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_places">Что посмотреть</string>
     <string name="menu_museums">Музеи</string>
     <string name="menu_catering">Места общепита</string>
@@ -20,6 +19,7 @@
     <string name="menu_about">О приложении</string>
     <string name="menu_bookmarks">Закладки</string>
     <string name="button_start">Start</string>
+    <string name="tv_info">Дополнительную информацию можно посмотреть по ссылке:</string>
     <string name="activity_about_newFeatures">Изменения:\n\t
     -Добавлены карты с метками\n\t
         -Осуществлена стабильная подгрузка картинок\n\t

@@ -1,106 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark">
+        android:layout_height="300dp"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:fitsSystemWindows="true"
+        >
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarContent"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/main_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark"
-            tools:ignore="MissingConstraints" />
-    </com.google.android.material.appbar.AppBarLayout>
-    <!--    <ImageButton-->
-    <!--        android:id="@+id/imgBtnBookmark"-->
-    <!--        android:layout_width="56dp"-->
-    <!--        android:layout_height="54dp"-->
-    <!--        android:layout_marginEnd="192dp"-->
-    <!--        android:background="@color/transparent"-->
-    <!--        android:onClick="onBookmarkClick"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="@+id/toolbarContent"-->
-    <!--        app:srcCompat="@drawable/bookmark_selector" />-->
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ScrollView
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPagerToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarContent"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/back_btn_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/transparent"
-                    android:onClick="onBackClick"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    app:srcCompat="@drawable/button_img_left" />
-
-                <ImageSwitcher
-                    android:id="@+id/imageSwitcher"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_vld" />
-
-                <ImageButton
-                    android:id="@+id/fwd_btn_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="4dp"
-                    android:layout_weight="1"
-                    android:background="@color/transparent"
-                    android:onClick="onFwdClick"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    app:srcCompat="@drawable/button_img_right" />
-
-            </LinearLayout>
-
             <TextView
                 android:id="@+id/tvContentDescribtion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="10dp"
-                android:text="TextView"
+                android:layout_margin="8dp"
+                android:paddingTop="20dp"
                 android:textIsSelectable="true"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="@string/pho_viet" />
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_container"
@@ -125,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="4dp"
-                android:text="Информация" />
+                android:text="@string/tv_info" />
 
             <TextView
                 android:id="@+id/tvLink"
@@ -136,11 +96,23 @@
                 android:layout_marginBottom="8dp"
                 android:autoLink="web"
                 android:clickable="false"
-                app:autoSizeMaxTextSize="20sp"
                 android:singleLine="true"
+                app:autoSizeMaxTextSize="20sp"
                 tools:text="https://russianisland.ru/%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%BB%D1%8C%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F-%D0%B1%D0%B0%D1%82%D0%B0%D1%80%D0%B5%D1%8F.html#:~:text=%D0%9F%D0%B5%D1%80%D0%B2%D0%BE%D0%B5%20%D1%87%D1%82%D0%BE%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D1%83%D0%B2%D0%B8%D0%B4%D0%B5%D1%82%D1%8C%20%D0%BD%D0%B0,%D0%B8%20%D0%BF%D0%BE%D0%BB%D0%BD%D0%BE%D1%81%D1%82%D1%8C%D1%8E%20%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD%D1%87%D0%B5%D0%BD%D0%BE%20%D0%B2%201902." />
-
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:elevation="12dp"
+        android:onClick="onFabClick"
+        android:src="@drawable/bookmark_selector"
+        app:backgroundTint="@color/floatBtn"
+        app:fabSize="auto"
+        app:layout_anchor="@id/appBarLayout"
+        app:layout_anchorGravity="bottom|right|end"
+        app:maxImageSize="28dp" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

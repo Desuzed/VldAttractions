@@ -31,7 +31,6 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     private ArrayList<VldObject> vldObjectList = new ArrayList<>();
     private Typeface typeface;
     private static RecViewAdapter instance;
-    private Bookmarks bookmarks;
     private TextView tvRecView;
 
     public static synchronized RecViewAdapter getInstance(Context contextMainActivity) {
@@ -43,13 +42,8 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
     public RecViewAdapter(Context contextMainActivity) {
         this.contextMainActivity = contextMainActivity;
-        bookmarks = Bookmarks.getInstance();
     }
 
-//    public RecViewAdapter(Context contextMainActivity, Bookmarks bookmarks) {
-//        this.contextMainActivity = contextMainActivity;
-//        this.bookmarks = bookmarks;
-//    }
 
     public void setItems(ArrayList<VldObject> list) {
         vldObjectList = list;
@@ -96,8 +90,6 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
             public void onClick(View view) {
                 // Log.i(TAG, "onClick: on bind " + position);
                 Intent intent = new Intent(contextMainActivity, VldContentActivity.class); //TODO Разобраться почему интент не сериализует булевое значение
-//                intent.putExtra("vldObject", vldObject);
-//                intent.putExtra("isBookmarked", vldObject.isBookmarked());
                 intent.putExtra("position", position);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 contextMainActivity.startActivity(intent);
@@ -118,7 +110,6 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
             super(itemView);
             imgItemRV = itemView.findViewById(R.id.imgItemRV);
             tvItemRV = itemView.findViewById(R.id.tvItemRV);
-            // imageButton = itemView.findViewById(R.id.bkmrk);
             typeface = Typeface.createFromAsset(contextMainActivity.getAssets(), "fonts/PTMono-Regular.ttf");
             tvItemRV.setTypeface(typeface);
         }
@@ -131,7 +122,6 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
                     .into(imgItemRV);
         }
     }
-
 
     public ArrayList<VldObject> getVldObjectList() {
         return vldObjectList;

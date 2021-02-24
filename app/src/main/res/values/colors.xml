@@ -9,10 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button_logo">#35A0F5</color>
     <color name="transparent">#00FFFFFF</color>
-    <color name="tvBackgroundDark">#A9838181</color>
-
+    <color name="bgText">#A9838181</color>
+    <color name="floatBtn">#F44336</color>
     <color name="main_color">#006E62</color>
-
     <color name="firstColor">#607D8B</color>
     <color name="second_color">#01473F</color>
     <color name="accent">#FDD835</color>

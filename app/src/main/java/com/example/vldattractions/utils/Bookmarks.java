@@ -43,8 +43,6 @@ public class Bookmarks {
         if (set == null ) {
             set = new TreeSet<VldObject>();
         }
-
-
         return set;
     }
 

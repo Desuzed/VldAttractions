@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle(title);
         //recViewAdapter.clearItems();
         recViewAdapter.setItems(vldObjectList);
+        recViewAdapter.setText("");
     }
 
     private void init() {
@@ -134,45 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bookmarks.setBookmarksSet(bookmarks.getSharedPrefBookmarkSet(getSharedPreferences("sharedPref", MODE_PRIVATE)));
         createObjects(R.string.menu_places, Places.INDEX);
         drawer = findViewById(R.id.drawer_layout);
-
-        //  themeSwitch = (Switch) findViewById(R.id.switchDarkNight);
-//        if  (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
-//            themeSwitch.setChecked(true);
-//        }
-
-//        int currentNightMode = getResources().getConfiguration().uiMode
-//                & Configuration.UI_MODE_NIGHT_MASK;
-//        if (currentNightMode==Configuration.UI_MODE_NIGHT_YES){
-//            themeSwitch.setChecked(true);
-//        }
-//        switch (currentNightMode) {
-//            case Configuration.UI_MODE_NIGHT_NO:
-//
-//            case Configuration.UI_MODE_NIGHT_YES:
-//                // Night mode is active, we're at night!
-//            case Configuration.UI_MODE_NIGHT_UNDEFINED:
-//                // We don't know what mode we're in, assume notnight
-//        }
-//        themeSwitch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//              //  navigationView.setCheckedItem(R.id.nav_places);
-////                finish();
-////                startActivity(new Intent(MainActivity.this, MainActivity.this.getClass()));
-//            }
-//        });
     }
-
-//    public void onSwitchClick (View view){
-//        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-//        } else {
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-//         //   themeSwitch.setChecked(true);
-//        }
-//
-//    }
 
     private void launchActivityAbout() {
         Intent intent = new Intent(MainActivity.this, ActivityAbout.class);
@@ -217,3 +180,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 }
 
+
+//  themeSwitch = (Switch) findViewById(R.id.switchDarkNight);
+//        if  (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO){
+//            themeSwitch.setChecked(true);
+//        }
+
+//        int currentNightMode = getResources().getConfiguration().uiMode
+//                & Configuration.UI_MODE_NIGHT_MASK;
+//        if (currentNightMode==Configuration.UI_MODE_NIGHT_YES){
+//            themeSwitch.setChecked(true);
+//        }
+//        switch (currentNightMode) {
+//            case Configuration.UI_MODE_NIGHT_NO:
+//
+//            case Configuration.UI_MODE_NIGHT_YES:
+//                // Night mode is active, we're at night!
+//            case Configuration.UI_MODE_NIGHT_UNDEFINED:
+//                // We don't know what mode we're in, assume notnight
+//        }
+//        themeSwitch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//              //  navigationView.setCheckedItem(R.id.nav_places);
+////                finish();
+////                startActivity(new Intent(MainActivity.this, MainActivity.this.getClass()));
+//            }
+//        });
+
+//    public void onSwitchClick (View view){
+//        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//        } else {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//         //   themeSwitch.setChecked(true);
+//        }
+//
+//    }
